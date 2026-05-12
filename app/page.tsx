@@ -182,7 +182,7 @@ export default function Page() {
               letterSpacing: 1, color: '#070B0F', background: '#00C9B1',
               padding: '6px 16px', borderRadius: 4, textTransform: 'uppercase',
             }}
-          >Request Pilot</a>
+          >Request Demo</a>
         </div>
       </nav>
 
