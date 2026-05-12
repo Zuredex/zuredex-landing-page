@@ -770,7 +770,7 @@ export default function Page() {
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             {/* SWAP: replace Calendly URL with your actual scheduling link */}
             <a
-              href="https://calendly.com/PLACEHOLDER"
+              href="https://cal.com/zuredex/30min"
               style={{
                 fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 13,
                 letterSpacing: 1.5, textTransform: 'uppercase',
