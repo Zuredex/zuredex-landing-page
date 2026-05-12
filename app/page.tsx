@@ -777,7 +777,7 @@ export default function Page() {
                 background: '#00C9B1', color: '#070B0F',
                 padding: '16px 32px', borderRadius: 4, display: 'inline-block',
               }}
-            >Schedule a 30-Minute Walkthrough</a>
+            >Request a platform Demo</a>
             <a
               href="mailto:admin@zuredex.com"
               style={{
