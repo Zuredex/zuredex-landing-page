@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="920" viewBox="0 0 820 920" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Zuredex Symbol</title>
+  <desc id="desc">Geometric reconstruction of the Zuredex segmented Z logo using five rounded parallelogram paths with smooth, directionally aligned gradients.</desc>
+  <defs>
+    <linearGradient id="grad-top_left" x1="42" y1="216" x2="578" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#031A36"/>
+      <stop offset="58%" stop-color="#0B3A65"/>
+      <stop offset="100%" stop-color="#165D8B"/>
+    </linearGradient>
+    <linearGradient id="grad-top_right" x1="522" y1="216" x2="790" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F557C"/>
+      <stop offset="55%" stop-color="#2799BC"/>
+      <stop offset="100%" stop-color="#50C4DD"/>
+    </linearGradient>
+    <linearGradient id="grad-center" x1="168" y1="672" x2="690" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0C4F7D"/>
+      <stop offset="55%" stop-color="#197FA8"/>
+      <stop offset="100%" stop-color="#45C0DB"/>
+    </linearGradient>
+    <linearGradient id="grad-bottom_left" x1="20" y1="888" x2="350" y2="705" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#031A36"/>
+      <stop offset="58%" stop-color="#0A3560"/>
+      <stop offset="100%" stop-color="#12537F"/>
+    </linearGradient>
+    <linearGradient id="grad-bottom_right" x1="324" y1="888" x2="718" y2="705" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#116A96"/>
+      <stop offset="55%" stop-color="#2396BC"/>
+      <stop offset="100%" stop-color="#4CC3DD"/>
+    </linearGradient>
+  </defs>
+  <path id="top_left" d="M 138.62 30.00 L 535.90 30.00 A 28.00 28.00 0 0 1 561.72 68.83 L 507.20 198.83 A 28.00 28.00 0 0 1 481.38 216.00 L 84.10 216.00 A 28.00 28.00 0 0 1 58.28 177.17 L 112.80 47.17 A 28.00 28.00 0 0 1 138.62 30.00 Z" fill="url(#grad-top_left)"/>
+  <path id="top_right" d="M 618.62 30.00 L 747.90 30.00 A 28.00 28.00 0 0 1 773.72 68.83 L 719.20 198.83 A 28.00 28.00 0 0 1 693.38 216.00 L 564.10 216.00 A 28.00 28.00 0 0 1 538.28 177.17 L 592.80 47.17 A 28.00 28.00 0 0 1 618.62 30.00 Z" fill="url(#grad-top_right)"/>
+  <path id="center" d="M 473.63 250.00 L 640.39 250.00 A 26.00 26.00 0 0 1 661.77 290.79 L 405.75 660.79 A 26.00 26.00 0 0 1 384.37 672.00 L 217.61 672.00 A 26.00 26.00 0 0 1 196.23 631.21 L 452.25 261.21 A 26.00 26.00 0 0 1 473.63 250.00 Z" fill="url(#grad-center)"/>
+  <path id="bottom_left" d="M 127.43 705.00 L 305.03 705.00 A 28.00 28.00 0 0 1 330.15 745.36 L 267.69 872.36 A 28.00 28.00 0 0 1 242.57 888.00 L 64.97 888.00 A 28.00 28.00 0 0 1 39.85 847.64 L 102.31 720.64 A 28.00 28.00 0 0 1 127.43 705.00 Z" fill="url(#grad-bottom_left)"/>
+  <path id="bottom_right" d="M 431.43 705.00 L 673.03 705.00 A 28.00 28.00 0 0 1 698.15 745.36 L 635.69 872.36 A 28.00 28.00 0 0 1 610.57 888.00 L 368.97 888.00 A 28.00 28.00 0 0 1 343.85 847.64 L 406.31 720.64 A 28.00 28.00 0 0 1 431.43 705.00 Z" fill="url(#grad-bottom_right)"/>
+</svg>
