@@ -816,10 +816,10 @@ export default function Page() {
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             {/* SWAP: replace Calendly URL with your actual scheduling link */}
             <a
-              href="https://cal.com/zuredex/30min"
+              href="https://cal.com/zuredex/60min"
               className="btn-primary"
               style={{ fontSize: 13, padding: '16px 32px' }}
-            >Schedule a 30-Minute Walkthrough</a>
+            >Schedule a Walkthrough</a>
             <a
               href="mailto:analytics@zuredex.com"
               className="btn-secondary"
