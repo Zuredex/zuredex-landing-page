@@ -26,6 +26,16 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["https://zuredex.com/og-image.png"],
   },
+  icons: {
+    shortcut: "/favicon.ico",
+    icon: [
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
+  appleWebApp: { title: "Zuredex" },
 };
 
 export default function RootLayout({
