@@ -49,6 +49,51 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Zuredex",
+              "url": "https://zuredex.com",
+              "logo": "https://zuredex.com/og-image.png",
+              "description": "AI-powered reconciliation and revenue visibility for surgical device distributors. Zuredex automates surgical case sheet reconciliation, purchase order matching, and unresolved revenue detection.",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "Web",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Pilot program available"
+              },
+              "creator": {
+                "@type": "Organization",
+                "name": "Zuredex LLC",
+                "url": "https://zuredex.com",
+                "email": "analytics@zuredex.com",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Indianapolis",
+                  "addressRegion": "IN",
+                  "addressCountry": "US"
+                }
+              },
+              "keywords": [
+                "medical device sales reconciliation",
+                "surgical case sheet automation",
+                "revenue intelligence",
+                "purchase order matching",
+                "medical device distributor software",
+                "operational intelligence platform",
+                "foot ankle orthopedic sales",
+                "Indiana medical device software"
+              ]
+            })
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
