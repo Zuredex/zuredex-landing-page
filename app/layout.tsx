@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zuredex.com"),
   title: "Zuredex — Operational Intelligence Platform",
-  description: "AI-powered reconciliation and revenue visibility for surgical device distributors.",
+  description: "AI-powered reconciliation and revenue visibility for surgical device distributors. Built in Indiana.",
   openGraph: {
     title: "Zuredex — Operational Intelligence Platform",
     description: "AI-powered reconciliation and revenue visibility for surgical device distributors.",
