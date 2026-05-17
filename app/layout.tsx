@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   appleWebApp: { title: "Zuredex" },
+  alternates: {
+    canonical: "https://www.zuredex.com",
+  },
 };
 
 export default function RootLayout({
