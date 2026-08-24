@@ -299,7 +299,7 @@ export default function Page() {
               fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#4A5568', marginTop: 20,
               animation: 'fade-up 0.6s ease 0.5s both',
             }}>
-              Built in Indiana&nbsp;&middot;&nbsp;Foot &amp; ankle orthopedic vertical&nbsp;&middot;&nbsp;Pilot-ready
+              Built in Indiana&nbsp;&middot;&nbsp;Medical device sales operations&nbsp;&middot;&nbsp;Pilot-ready
             </div>
           </div>
 
@@ -646,7 +646,7 @@ export default function Page() {
         </div>
 
         <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#4A5568', textAlign: 'center', marginTop: 16 }}>
-          Foot &amp; ankle orthopedic vertical&nbsp;&middot;&nbsp;Sample data shown
+          Sample data shown
         </div>
       </section>
 
@@ -822,7 +822,7 @@ export default function Page() {
             Zuredex is preparing pilot deployments for distributors seeking to reduce manual reconciliation and improve revenue visibility.
           </p>
           <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#4A5568', letterSpacing: 1.5, marginBottom: 36, textTransform: 'uppercase', lineHeight: 1.8 }}>
-            PILOT-READY · FOOT &amp; ANKLE VERTICAL · INDIANA-BASED · SEEKING DESIGN PARTNERS
+            PILOT-READY · INDIANA-BASED · SEEKING DESIGN PARTNERS
           </div>
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             {/* SWAP: replace Calendly URL with your actual scheduling link */}

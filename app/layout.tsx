@@ -96,7 +96,7 @@ export default function RootLayout({
                 "purchase order matching",
                 "medical device distributor software",
                 "operational intelligence platform",
-                "foot ankle orthopedic sales",
+                "medical device sales operations",
                 "Indiana medical device software"
               ]
             })
