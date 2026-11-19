@@ -1,12 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://zuredex.com',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1.0,
-    },
-  ]
+  return ['', '/about', '/privacy', '/terms'].map(path => ({
+    url: `https://www.zuredex.com${path}`,
+  }))
 }

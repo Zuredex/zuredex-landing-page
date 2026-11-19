@@ -19,7 +19,7 @@ export default function SiteStyles() {
         --accentSoft: #7FD1DF;
         --t1:         #F4F7FA;
         --t2:         #A7B4C0;
-        --t3:         #4A5568;
+        --t3:         #A1B8C9;
         --green:      #10B981;
         --amber:      #F59E0B;
         --orange:     #FF6B35;
@@ -30,6 +30,46 @@ export default function SiteStyles() {
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
       body { background: #07182A !important; color: #F4F7FA; flex-direction: column; }
+      main { flex: 1; }
+      [id] { scroll-margin-top: 80px; }
+      :focus-visible { outline: 3px solid #7FD1DF; outline-offset: 4px; }
+      .skip-link { position: fixed; top: 8px; left: 12px; z-index: 200; transform: translateY(-180%); background: #F4F7FA; color: #07182A; padding: 12px 18px; border-radius: 4px; }
+      .skip-link:focus { transform: translateY(0); }
+      .site-nav { position: fixed; inset: 0 0 auto; z-index: 100; min-height: 64px; padding: 4px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #07182A; border-bottom: 1px solid #22313D; }
+      .brand-link { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+      .brand-link img { display: block; }
+      .brand-name { display: block; font: 700 14px var(--font-syne), sans-serif; letter-spacing: 2px; color: #F4F7FA; }
+      .brand-tagline { display: block; font: 10px var(--font-dm), monospace; color: #A1B8C9; margin-top: 2px; }
+      .nav-desktop, .nav-actions { display: flex; align-items: center; gap: 20px; }
+      .site-nav .nav-link { display: inline-flex; align-items: center; min-height: 44px; }
+      .menu-toggle { display: none; min-height: 44px; padding: 8px 12px; color: #F4F7FA; background: #151B22; border: 1px solid #A1B8C9; border-radius: 4px; font: inherit; cursor: pointer; }
+      .nav-mobile { display: none; }
+      .dashboard-preview { background: #0F141A; border: 1px solid #22313D; border-radius: 8px; padding: 20px; font: 14px/1.6 var(--font-plex), sans-serif; color: #A7B4C0; box-shadow: 0 24px 60px rgba(0,0,0,.3); }
+      .preview-heading { font-weight: 600; color: #F4F7FA; padding-bottom: 16px; }
+      .preview-metrics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+      .preview-card { border: 1px solid #22313D; border-top: 2px solid #3BA7C7; border-radius: 6px; padding: 12px; background: #151B22; }
+      .preview-card span { font-size: 24px; color: #F4F7FA; }
+      .preview-note { margin: 20px 0; color: #F4F7FA; border-left: 2px solid #3BA7C7; padding-left: 12px; }
+      .preview-statuses > div { display: grid; grid-template-columns: 1fr 1.4fr; gap: 16px; padding: 12px 0; border-top: 1px solid #22313D; }
+      .preview-statuses dd { color: #7FD1DF; }
+      .preview-caption { padding-top: 16px; font-size: 12px; color: #A1B8C9; }
+      @media (max-width: 960px) {
+        .site-nav { padding: 4px 16px; gap: 8px; }
+        .nav-desktop { display: none; }
+        .nav-actions { gap: 8px; }
+        .menu-toggle { display: block; }
+        .nav-mobile:not([hidden]) { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; padding: 12px 24px; background: #07182A; border-bottom: 1px solid #A1B8C9; max-height: calc(100dvh - 64px); overflow-y: auto; }
+      }
+      @media (max-width: 400px) {
+        .brand-tagline { display: none; }
+        .brand-link { gap: 6px; }
+        .site-nav { padding-inline: 12px; }
+        .preview-statuses > div { grid-template-columns: 1fr; gap: 4px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+      }
 
       @keyframes pulse-dot {
         0%, 100% { opacity: 1; }
@@ -51,7 +91,7 @@ export default function SiteStyles() {
       a { text-decoration: none; }
 
       .nav-link {
-        font-family: 'IBM Plex Sans', sans-serif;
+        font-family: var(--font-plex), sans-serif;
         font-size: 13px;
         color: #A7B4C0;
         transition: color 150ms ease;
@@ -64,7 +104,7 @@ export default function SiteStyles() {
         border: 1px solid rgba(59,167,199,0.2);
         border-radius: 4px;
         padding: 10px 24px;
-        font-family: 'DM Mono', monospace;
+        font-family: var(--font-dm), monospace;
         font-size: 12px;
         color: #A7B4C0;
         letter-spacing: 1.5px;
@@ -100,7 +140,7 @@ export default function SiteStyles() {
       }
 
       .btn-primary {
-        font-family: 'Syne', sans-serif;
+        font-family: var(--font-syne), sans-serif;
         font-weight: 700;
         letter-spacing: 1.5px;
         text-transform: uppercase;
@@ -116,7 +156,7 @@ export default function SiteStyles() {
       .btn-primary:hover { background: #7FD1DF; transform: translateY(-1px); }
 
       .btn-secondary {
-        font-family: 'IBM Plex Sans', sans-serif;
+        font-family: var(--font-plex), sans-serif;
         font-size: 13px;
         background: transparent;
         color: #F4F7FA;
@@ -129,9 +169,9 @@ export default function SiteStyles() {
       .btn-secondary:hover { border-color: #3BA7C7; color: #3BA7C7; transform: translateY(-1px); }
 
       .footer-link {
-        font-family: 'IBM Plex Sans', sans-serif;
+        font-family: var(--font-plex), sans-serif;
         font-size: 13px;
-        color: #4A5568;
+        color: #A1B8C9;
         text-decoration: none;
         transition: color 150ms ease;
         display: block;

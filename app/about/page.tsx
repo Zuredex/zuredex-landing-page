@@ -4,6 +4,7 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About — Zuredex",
   description: "Zuredex is an operational intelligence platform for medical device sales organizations, founded in Indianapolis, Indiana.",
 };
@@ -36,17 +37,18 @@ export default function AboutPage() {
     <>
       <SiteStyles />
       <SiteNav />
+      <main id="main-content" tabIndex={-1}>
 
       {/* Intro */}
       <section className="legal-pad" style={{ background: "#07182A", padding: "140px 80px 40px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             ABOUT ZUREDEX
           </div>
-          <h1 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 42, color: "#F4F7FA", letterSpacing: -0.5, lineHeight: 1.14, marginBottom: 24 }}>
+          <h1 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 42, color: "#F4F7FA", letterSpacing: -0.5, lineHeight: 1.14, marginBottom: 24 }}>
             About Zuredex
           </h1>
-          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 300, fontSize: 17, color: "#A7B4C0", lineHeight: 1.8 }}>
+          <p style={{ fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 17, color: "#A7B4C0", lineHeight: 1.8 }}>
             Zuredex is an operational intelligence platform purpose-built for medical device sales organizations,
             surgical distributors, and sales operations teams. Founded in Indianapolis, Indiana, Zuredex was created
             to solve a persistent challenge in surgical revenue workflows: the manual friction, slow turnaround, and
@@ -58,13 +60,13 @@ export default function AboutPage() {
       {/* Mission */}
       <section className="section-pad" style={{ background: "#0F141A", padding: "60px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             OUR MISSION
           </div>
-          <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 20 }}>
+          <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 20 }}>
             Complete visibility over every device, every case, and every dollar.
           </h2>
-          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8 }}>
+          <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8 }}>
             We build modern tools that give surgical sales teams complete visibility over every device, every case,
             and every dollar. By combining AI-assisted document intelligence with human-in-the-loop verification,
             Zuredex streamlines case reconciliation while upholding strict enterprise security and privacy standards.
@@ -75,10 +77,10 @@ export default function AboutPage() {
       {/* Leadership */}
       <section className="section-pad" style={{ background: "#07182A", borderTop: "1px solid #1C2430", borderBottom: "1px solid #1C2430", padding: "60px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             LEADERSHIP
           </div>
-          <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 32 }}>
+          <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 32 }}>
             Founder-led.
           </h2>
           <div className="glass-card" style={{ display: "flex", alignItems: "center", gap: 20, padding: 24, borderRadius: 8 }}>
@@ -86,12 +88,12 @@ export default function AboutPage() {
               width: 56, height: 56, borderRadius: "50%", flexShrink: 0,
               background: "#3BA7C714", border: "1px solid #22313D",
               display: "flex", alignItems: "center", justifyContent: "center",
-              fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 18, color: "#3BA7C7",
+              fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 18, color: "#3BA7C7",
             }}>AG</div>
             <div>
-              <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 17, color: "#F4F7FA" }}>Ambar Garcia</div>
-              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#3BA7C7", marginTop: 2, letterSpacing: 0.5 }}>CO-FOUNDER</div>
-              <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: "#A7B4C0", marginTop: 8, lineHeight: 1.6 }}>
+              <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 17, color: "#F4F7FA" }}>Ambar Garcia</div>
+              <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 11, color: "#3BA7C7", marginTop: 2, letterSpacing: 0.5 }}>CO-FOUNDER</div>
+              <div style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 14, color: "#A7B4C0", marginTop: 8, lineHeight: 1.6 }}>
                 Co-Founder, leading go-to-market and territory operations.
               </div>
             </div>
@@ -102,13 +104,13 @@ export default function AboutPage() {
       {/* Engineering & Security Focus */}
       <section id="security" className="section-pad" style={{ background: "#0F141A", padding: "60px 80px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             ENGINEERING &amp; SECURITY FOCUS
           </div>
-          <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 20, maxWidth: 700 }}>
+          <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 20, maxWidth: 700 }}>
             Built entirely on Google Cloud infrastructure.
           </h2>
-          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8, maxWidth: 700, marginBottom: 40 }}>
+          <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8, maxWidth: 700, marginBottom: 40 }}>
             Zuredex is built entirely on Google Cloud infrastructure and operates under a HIPAA Business Associate
             Agreement (BAA).
           </p>
@@ -119,11 +121,11 @@ export default function AboutPage() {
                   width: 32, height: 32, flexShrink: 0,
                   background: "#3BA7C714", border: "1px solid #1C2430", borderRadius: 4,
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#3BA7C7", letterSpacing: 0.5, fontWeight: 500,
+                  fontFamily: "var(--font-dm), monospace", fontSize: 11, color: "#3BA7C7", letterSpacing: 0.5, fontWeight: 500,
                 }}>{item.num}</div>
                 <div>
-                  <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 14, color: "#F4F7FA", marginBottom: 6 }}>{item.title}</div>
-                  <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: "#A7B4C0", lineHeight: 1.75 }}>{item.body}</div>
+                  <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 14, color: "#F4F7FA", marginBottom: 6 }}>{item.title}</div>
+                  <div style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: "#A7B4C0", lineHeight: 1.75 }}>{item.body}</div>
                 </div>
               </div>
             ))}
@@ -134,19 +136,20 @@ export default function AboutPage() {
       {/* Company & Contact */}
       <section className="section-pad" style={{ background: "#07182A", borderTop: "1px solid #1C2430", padding: "60px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             COMPANY &amp; CONTACT
           </div>
-          <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 18, color: "#F4F7FA", marginBottom: 8 }}>
+          <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 18, color: "#F4F7FA", marginBottom: 8 }}>
             Zuredex LLC — Indianapolis, Indiana, USA
           </div>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 13, color: "#A7B4C0" }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 13, color: "#A7B4C0" }}>
             General inquiries:{" "}
             <a href="mailto:analytics@zuredex.com" className="legal-link">analytics@zuredex.com</a>
           </div>
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </>
   );

@@ -1,3 +1,8 @@
+import Image from "next/image";
+import territory from "@/public/territory-desktop.png";
+import dashboard from "@/public/dashboard-desktop.png";
+import mobileDashboard from "@/public/dashboard-mobile.png";
+import mobileCases from "@/public/cases-mobile.png";
 import SiteStyles from "@/components/SiteStyles";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
@@ -7,6 +12,7 @@ export default function Page() {
     <>
       <SiteStyles />
       <SiteNav />
+      <main id="main-content" tabIndex={-1}>
 
       {/* ── SECTION 2: HERO ───────────────────────────────────── */}
       <section style={{ minHeight: '100vh', background: '#07182A', position: 'relative', overflow: 'hidden' }}>
@@ -36,18 +42,16 @@ export default function Page() {
           {/* LEFT COLUMN */}
           <div>
             <div style={{
-              fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#3BA7C7',
+              fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7',
               letterSpacing: 3, textTransform: 'uppercase',
               borderLeft: '2px solid #3BA7C7', paddingLeft: 12, marginBottom: 24,
-              animation: 'fade-up 0.6s ease forwards',
             }}>RECONCILIATION · TERRITORY · COMMISSIONS</div>
 
             <h1
               className="hero-headline"
               style={{
-                fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 48,
+                fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 48,
                 lineHeight: 1.12, letterSpacing: -1, color: '#F4F7FA',
-                animation: 'fade-up 0.6s ease 0.1s both',
               }}
             >
               Every Device.<br />
@@ -56,26 +60,22 @@ export default function Page() {
             </h1>
 
             <p style={{
-              fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 300, fontSize: 18, color: '#A7B4C0',
+              fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 18, color: '#A7B4C0',
               lineHeight: 1.75, maxWidth: 480, marginTop: 20,
-              animation: 'fade-up 0.6s ease 0.2s both',
             }}>
               AI-powered reconciliation and revenue intelligence for medical device sales organizations.
             </p>
 
             <p style={{
-              fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: '#4A5568',
+              fontFamily: "var(--font-plex), sans-serif", fontSize: 14, color: '#A1B8C9',
               lineHeight: 1.75, maxWidth: 460, marginTop: 16,
-              animation: 'fade-up 0.6s ease 0.3s both',
             }}>
-              Zuredex automates surgical case sheet reconciliation, purchase order matching,
-              and unresolved revenue detection — giving distributors and sales operations teams
-              the visibility they have never had.
+              AI reads it, a person confirms every case in Manual Review.
+              Match case sheets to purchase orders and calculate commissions from confirmed revenue.
             </p>
 
             <div style={{
               marginTop: 36, display: 'flex', gap: 14, flexWrap: 'wrap',
-              animation: 'fade-up 0.6s ease 0.4s both',
             }}>
               <a
                 href="#cta"
@@ -90,144 +90,30 @@ export default function Page() {
             </div>
 
             <div style={{
-              fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#4A5568', marginTop: 20,
-              animation: 'fade-up 0.6s ease 0.5s both',
+              fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', marginTop: 20,
             }}>
-              Built in Indiana&nbsp;&middot;&nbsp;Medical device sales operations&nbsp;&middot;&nbsp;Pilot-ready
+              Built in Indiana&nbsp;&middot;&nbsp;Medical device sales operations
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Dashboard preview */}
-          <div style={{
-            background: '#0F141A',
-            border: '1px solid #1C2430',
-            borderRadius: 8,
-            overflow: 'hidden',
-            boxShadow: '0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px #1C2430',
-          }}>
-            {/* Browser chrome */}
-            <div style={{
-              height: 36, background: '#151B22', borderBottom: '1px solid #1C2430',
-              display: 'flex', alignItems: 'center', padding: '0 14px', gap: 6,
-            }}>
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#FF4D6A', flexShrink: 0 }} />
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#F59E0B', flexShrink: 0 }} />
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981', flexShrink: 0 }} />
-              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, color: '#4A5568', marginLeft: 8 }}>
-                zuredex&nbsp;&middot;&nbsp;dashboard&nbsp;&middot;&nbsp;morgan hayes&nbsp;&middot;&nbsp;admin
-              </span>
-            </div>
-
-            {/* Content */}
-            <div style={{ padding: 16 }}>
-              {/* KPI cards */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 8, marginBottom: 10 }}>
-                {[
-                  { accent: '#3BA7C7', label: 'CASES / MONTH', value: '47', color: '#3BA7C7' },
-                  { accent: '#10B981', label: 'TOP MFR: ARTHREX', value: '$103.6K', color: '#10B981' },
-                  { accent: '#FF4D6A', label: 'AT RISK', value: '$19.3K', color: '#FF4D6A' },
-                  { accent: '#F59E0B', label: 'NEEDS REVIEW', value: '6', color: '#F59E0B' },
-                ].map(card => (
-                  <div key={card.label} style={{ background: '#151B22', border: '1px solid #1C2430', borderRadius: 6, overflow: 'hidden' }}>
-                    <div style={{ height: 2, background: card.accent }} />
-                    <div style={{ padding: '8px 10px' }}>
-                      <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 7, color: '#4A5568', letterSpacing: 2, marginBottom: 4 }}>{card.label}</div>
-                      <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 18, color: card.color }}>{card.value}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Alert banner */}
-              <div style={{
-                background: '#FF4D6A0A', border: '1px solid #FF4D6A22', borderRadius: 4,
-                padding: '7px 10px', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10,
-              }}>
-                <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#FF4D6A', flexShrink: 0, animation: 'pulse-dot 2s ease infinite' }} />
-                <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, color: '#FF4D6A' }}>
-                  ALERT: Jordan Kim&nbsp;&middot;&nbsp;$32.7K at risk&nbsp;&middot;&nbsp;11 unmatched cases
-                </span>
-              </div>
-
-              {/* Rep cards */}
-              <div className="dashboard-rep-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, marginBottom: 10 }}>
-                {[
-                  { initials: 'AR', name: 'Alex Rivera', territory: 'Central Region', match: '92.1%', risk: '$8.8K', matchColor: '#10B981', riskColor: '#F59E0B', accent: '#10B981' },
-                  { initials: 'JK', name: 'Jordan Kim', territory: 'Eastern Region', match: '74.4%', risk: '$32.7K', matchColor: '#FF4D6A', riskColor: '#FF4D6A', accent: '#FF4D6A' },
-                  { initials: 'CN', name: 'Casey Nguyen', territory: 'Northern Region', match: '93.3%', risk: '$4.2K', matchColor: '#10B981', riskColor: '#F59E0B', accent: '#10B981' },
-                ].map(rep => (
-                  <div key={rep.initials} style={{
-                    background: '#0F141A', border: '1px solid #1C2430', borderRadius: 6,
-                    padding: '10px 10px 10px 12px', borderLeft: `3px solid ${rep.accent}`,
-                  }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 7 }}>
-                      <div style={{
-                        width: 26, height: 26, borderRadius: 4, flexShrink: 0,
-                        background: `${rep.accent}18`, border: `1px solid ${rep.accent}33`,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontFamily: "'DM Mono', monospace", fontSize: 8, color: rep.accent, fontWeight: 500,
-                      }}>{rep.initials}</div>
-                      <div>
-                        <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 10, color: '#F4F7FA', lineHeight: 1.2 }}>{rep.name}</div>
-                        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 7, color: '#4A5568', marginTop: 1 }}>{rep.territory}</div>
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', gap: 12 }}>
-                      <div>
-                        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: rep.matchColor, fontWeight: 500 }}>{rep.match}</div>
-                        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 7, color: '#4A5568' }}>MATCH</div>
-                      </div>
-                      <div>
-                        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: rep.riskColor, fontWeight: 500 }}>{rep.risk}</div>
-                        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 7, color: '#4A5568' }}>AT RISK</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Cases mini-table */}
-              <div className="dashboard-table">
-                <div style={{ display: 'grid', gridTemplateColumns: '2fr 1.4fr 1fr 1.3fr 0.7fr', gap: 4, paddingBottom: 4, marginBottom: 2 }}>
-                  {['FACILITY','SURGEON','PO','STATUS','CONF'].map(h => (
-                    <div key={h} style={{ fontFamily: "'DM Mono', monospace", fontSize: 7, color: '#4A5568', letterSpacing: 1 }}>{h}</div>
-                  ))}
+          {/* Illustrative placeholders, not customer metrics. */}
+          <div className="dashboard-preview" aria-label="Illustrative workflow preview">
+            <div className="preview-heading">Zuredex · workflow preview</div>
+            <div className="preview-metrics">
+              {['Cases', 'Confirmed revenue', 'Commissions', 'Needs review'].map(label => (
+                <div className="preview-card" key={label}>
+                  <div>{label}</div>
+                  <span aria-label="Placeholder">—</span>
                 </div>
-                {[
-                  { facility: 'Crestview Orthopedic', surgeon: 'Dr. N. Calloway', po: 'PO-2026-0513', status: 'MATCHED', sBg: '#3BA7C714', sColor: '#3BA7C7', sBorder: '#3BA7C720', conf: '94%', risk: null },
-                  { facility: 'Summit Surgical', surgeon: 'Dr. P. Holden', po: '—', status: 'WAITING FOR PO', sBg: '#F59E0B14', sColor: '#F59E0B', sBorder: 'transparent', conf: '—', risk: '$4,280' },
-                  { facility: 'Ridgeline ASC', surgeon: 'Dr. M. Wren', po: 'PO-2026-0510', status: 'MATCHED', sBg: '#3BA7C714', sColor: '#3BA7C7', sBorder: '#3BA7C720', conf: '97%', risk: null },
-                  { facility: 'Crestview Orthopedic', surgeon: 'Dr. N. Calloway', po: '—', status: 'NEEDS REVIEW', sBg: '#FF6B3514', sColor: '#FF6B35', sBorder: 'transparent', conf: '61%', risk: '$2,840' },
-                ].map((row, i) => (
-                  <div key={i} style={{
-                    display: 'grid', gridTemplateColumns: '2fr 1.4fr 1fr 1.3fr 0.7fr', gap: 4,
-                    padding: '5px 0', borderTop: '1px solid #1C2430', alignItems: 'center',
-                  }}>
-                    <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 8, color: '#A7B4C0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{row.facility}</div>
-                    <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 8, color: '#A7B4C0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{row.surgeon}</div>
-                    <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 7, color: '#4A5568' }}>{row.po}</div>
-                    <div style={{
-                      fontFamily: "'DM Mono', monospace", fontSize: 6.5, letterSpacing: 0.5,
-                      background: row.sBg, color: row.sColor,
-                      border: `1px solid ${row.sBorder}`,
-                      padding: '2px 4px', borderRadius: 2,
-                      whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-                    }}>{row.status}</div>
-                    <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 7.5, color: row.risk ? '#FF4D6A' : '#A7B4C0' }}>
-                      {row.risk ?? row.conf}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Status bar */}
-              <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 8, borderTop: '1px solid #1C2430', paddingTop: 8 }}>
-                <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981', flexShrink: 0, animation: 'pulse-dot 2s ease infinite' }} />
-                <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, color: '#4A5568' }}>
-                  PRODUCT PREVIEW&nbsp;&middot;&nbsp;SAMPLE DATA&nbsp;&middot;&nbsp;DEMO MEDICAL CO
-                </span>
-              </div>
+              ))}
             </div>
+            <p className="preview-note">AI reads it, a person confirms every case in Manual Review.</p>
+            <dl className="preview-statuses">
+              <div><dt>Case sheet</dt><dd>Manual Review</dd></div>
+              <div><dt>Purchase order</dt><dd>Waiting for PO</dd></div>
+              <div><dt>Revenue</dt><dd>Confirmed after review and matching</dd></div>
+            </dl>
+            <p className="preview-caption">Illustrative layout · placeholders only</p>
           </div>
         </div>
       </section>
@@ -235,20 +121,20 @@ export default function Page() {
       {/* ── SECTION 3: CAPABILITY PILLARS ─────────────────────── */}
       <section className="section-pad" style={{ background: '#0F141A', padding: '86px 80px', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>SIX CAPABILITIES</div>
-          <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 16 }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>SIX CAPABILITIES</div>
+          <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 16 }}>
             More than reconciliation.<br />An operational intelligence platform.
           </h2>
-          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 600, marginBottom: 48, lineHeight: 1.75 }}>
+          <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 600, marginBottom: 48, lineHeight: 1.75 }}>
             Six capabilities working from the same reconciled data — for operations teams and reps alike.
           </p>
           <div className="security-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 16, maxWidth: 900, margin: '0 auto' }}>
             {[
-              { num: '01', title: 'Reconciliation', body: 'Automated case-sheet-to-PO matching, with confidence-tiered resolution.' },
-              { num: '02', title: 'Revenue Intelligence', body: 'Real-time visibility into reconciled revenue, at-risk cases, and rep performance.' },
+              { num: '01', title: 'Reconciliation', body: 'AI reads it, a person confirms every case in Manual Review.' },
+              { num: '02', title: 'Revenue Intelligence', body: 'Visibility into confirmed revenue, cases awaiting POs, and rep performance.' },
               { num: '03', title: 'Territory Intelligence', body: "Geographic and facility-level visibility into where reps are working and what's being sold." },
-              { num: '04', title: 'Commission Tracking', body: 'Rate-accurate commission calculation across reps, surgeons, and facility agreements.' },
-              { num: '05', title: 'Inventory Analytics', body: "Device and manufacturer-level visibility into what's moving through each territory." },
+              { num: '04', title: 'Commission Tracking', body: 'Commission calculation with split payees, flat fees, and per-rep payouts.' },
+              { num: '05', title: 'Device Usage', body: "Visibility into device usage in your case data." },
               { num: '06', title: 'Rep Portal', body: 'Reps get their own view — case status, pipeline, and performance — not just administrators.' },
             ].map(item => (
               <div key={item.title} className="glass-card" style={{ display: 'flex', gap: 14, padding: 20, borderRadius: 6 }}>
@@ -256,16 +142,16 @@ export default function Page() {
                   width: 32, height: 32, flexShrink: 0,
                   background: '#3BA7C714', border: '1px solid #1C2430', borderRadius: 4,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: "'DM Mono', monospace", fontSize: 11, color: '#3BA7C7', letterSpacing: 0.5, fontWeight: 500,
+                  fontFamily: "var(--font-dm), monospace", fontSize: 11, color: '#3BA7C7', letterSpacing: 0.5, fontWeight: 500,
                 }}>{item.num}</div>
                 <div>
-                  <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 14, color: '#F4F7FA', marginBottom: 6 }}>{item.title}</div>
-                  <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: '#A7B4C0', lineHeight: 1.75 }}>{item.body}</div>
+                  <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 14, color: '#F4F7FA', marginBottom: 6 }}>{item.title}</div>
+                  <div style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#A7B4C0', lineHeight: 1.75 }}>{item.body}</div>
                 </div>
               </div>
             ))}
           </div>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#4A5568', textAlign: 'center', marginTop: 32 }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', textAlign: 'center', marginTop: 32 }}>
             Built for how medical device sales actually works — for operations teams and reps alike.
           </div>
         </div>
@@ -292,46 +178,31 @@ export default function Page() {
         ].map(item => (
           <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <span style={{ color: '#3BA7C7', fontSize: 13, lineHeight: 1 }}>{item.sym}</span>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#A7B4C0', letterSpacing: 1.5, textTransform: 'uppercase' }}>{item.label}</span>
+            <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A7B4C0', letterSpacing: 1.5, textTransform: 'uppercase' }}>{item.label}</span>
           </div>
         ))}
       </section>
 
-      {/* ── SECTION 5: TECH STRIP ─────────────────────────────── */}
-      <section className="tech-strip" style={{ background: '#07182A', padding: '40px 80px', textAlign: 'center' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 4, marginBottom: 12, textTransform: 'uppercase' }}>
-            BUILT ON ENTERPRISE INFRASTRUCTURE
-          </div>
-          <div style={{ width: 48, height: 1, background: 'rgba(59,167,199,0.2)', marginBottom: 20 }} />
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 10 }}>
-          {['Google Cloud','BigQuery','Firebase','Cloud Run','Power BI Embedded','Next.js 16','Document AI','Python'].map(tech => (
-            <span key={tech} className="tech-item">{tech}</span>
-          ))}
-        </div>
-      </section>
-
       {/* ── SECTION 6: WHY NOW ────────────────────────────────── */}
       <section id="platform" className="section-pad" style={{ background: '#0F141A', padding: '86px 80px' }}>
-        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE MARKET WINDOW</div>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 16, maxWidth: 700, lineHeight: 1.14 }}>
-          The infrastructure layer that medical device sales has been missing.
+        <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE DAILY WORKFLOW</div>
+        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 16, maxWidth: 700, lineHeight: 1.14 }}>
+          Bring case sheets, POs, and commissions into view.
         </h2>
-        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 560, marginBottom: 60, lineHeight: 1.75 }}>
-          Four forces have created an immediate window for reconciliation automation in this market.
+        <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 560, marginBottom: 60, lineHeight: 1.75 }}>
+          Keep document review and revenue visibility connected to the work your team does every day.
         </p>
         <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, maxWidth: 900, margin: '0 auto' }}>
           {[
-            { num: '01', title: 'Document AI reached production reliability', body: 'Parsing surgical PDFs with high confidence is now a solved infrastructure problem.' },
-            { num: '02', title: 'Distributors face margin pressure without visibility', body: 'Manual reconciliation leaves untracked revenue in every sales cycle with no systematic way to recover it.' },
-            { num: '03', title: 'Hospital systems are accelerating digitization', body: 'Purchase orders and case documentation are increasingly structured and machine-readable.' },
-            { num: '04', title: 'No purpose-built tool exists for this workflow', body: 'Generic CRMs and spreadsheets are the current state. There is no reconciliation infrastructure built for device sales.' },
+            { num: '01', title: 'Case sheets read by hand', body: 'AI extracts fields and line items from typed and handwritten case sheets for human review.' },
+            { num: '02', title: 'Owners need current numbers', body: 'Review confirmed revenue and cases waiting for POs alongside rep performance.' },
+            { num: '03', title: 'POs arrive late or never', body: 'Match case sheets to purchase orders and flag price mismatches for review.' },
+            { num: '04', title: 'Double entry between spreadsheets and email', body: 'Bring extracted case details, PO matching, and commission calculations into a shared workflow.' },
           ].map(card => (
             <div key={card.num} className="why-card">
-              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: '#3BA7C7' }}>{card.num}</div>
-              <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 600, fontSize: 16, color: '#F4F7FA', marginTop: 12, lineHeight: 1.4 }}>{card.title}</div>
-              <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: '#A7B4C0', lineHeight: 1.75, marginTop: 8 }}>{card.body}</div>
+              <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 11, color: '#3BA7C7' }}>{card.num}</div>
+              <div style={{ fontFamily: "var(--font-plex), sans-serif", fontWeight: 600, fontSize: 16, color: '#F4F7FA', marginTop: 12, lineHeight: 1.4 }}>{card.title}</div>
+              <div style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 14, color: '#A7B4C0', lineHeight: 1.75, marginTop: 8 }}>{card.body}</div>
             </div>
           ))}
         </div>
@@ -339,26 +210,26 @@ export default function Page() {
 
       {/* ── SECTION 7: RECONCILIATION ENGINE ─────────────────── */}
       <section id="workflow" className="section-pad" style={{ background: '#07182A', borderTop: '1px solid #1C2430', borderBottom: '1px solid #1C2430', padding: '86px 80px' }}>
-        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE ENGINE</div>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 16, lineHeight: 1.14 }}>
+        <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE ENGINE</div>
+        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 16, lineHeight: 1.14 }}>
           From fragmented documents to<br />operational intelligence.
         </h2>
-        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 520, marginBottom: 64, lineHeight: 1.75 }}>
-          Every surgical case generates documents across multiple systems. Zuredex connects them automatically.
+        <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 520, marginBottom: 64, lineHeight: 1.75 }}>
+          AI reads it, a person confirms every case in Manual Review. Case sheets and POs stay connected through matching and price-mismatch review.
         </p>
 
         <div className="recon-grid" style={{ maxWidth: 1000, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 80px 1fr 80px 1fr', alignItems: 'start' }}>
           {/* Inputs */}
           <div>
-            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, color: '#4A5568', letterSpacing: 2, marginBottom: 20, textTransform: 'uppercase' }}>DOCUMENT INPUTS</div>
-            {['Case Sheets (PDF)','Purchase Orders','Uploaded Documents','Processing Queue','Email Attachments'].map(item => (
+            <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 2, marginBottom: 20, textTransform: 'uppercase' }}>DOCUMENT INPUTS</div>
+            {['Case Sheets','Purchase Orders','Document Uploads','Phone Camera'].map(item => (
               <div key={item} style={{
                 background: '#151B22', border: '1px solid #1C2430', borderRadius: 4,
                 padding: '10px 14px', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10,
                 boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
               }}>
                 <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#3BA7C7', flexShrink: 0 }} />
-                <span style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: '#A7B4C0' }}>{item}</span>
+                <span style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#A7B4C0' }}>{item}</span>
               </div>
             ))}
           </div>
@@ -366,7 +237,7 @@ export default function Page() {
           {/* Arrow 1 */}
           <div className="recon-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 60 }}>
             <svg width="100%" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="0" y1="12" x2="72" y2="12" stroke="#3BA7C7" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 8" strokeLinecap="round" style={{ animation: 'dash-flow 1.5s linear infinite' }} />
+              <line x1="0" y1="12" x2="72" y2="12" stroke="#3BA7C7" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 8" strokeLinecap="round"  />
               <polygon points="68,7 80,12 68,17" fill="#3BA7C7" fillOpacity="0.6" />
             </svg>
           </div>
@@ -377,11 +248,11 @@ export default function Page() {
             border: '1px solid #1C2430', borderRadius: 8, padding: 24,
             boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
           }}>
-            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, color: '#3BA7C7', letterSpacing: 2, marginBottom: 16, textTransform: 'uppercase' }}>AI RECONCILIATION ENGINE</div>
-            {['Confidence Scoring','Duplicate Detection','Field Normalization','Document Validation','Exception Routing','Audit Logging'].map(cap => (
+            <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 8, color: '#3BA7C7', letterSpacing: 2, marginBottom: 16, textTransform: 'uppercase' }}>AI EXTRACTION & HUMAN REVIEW</div>
+            {['AI-Extracted Fields','Manual Review of Every Case','Human Confirmation','PO Matching','Price-Mismatch Detection','Duplicate Suggestions'].map(cap => (
               <div key={cap} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
                 <div style={{ width: 4, height: 4, borderRadius: '50%', background: '#3BA7C7', flexShrink: 0 }} />
-                <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#A7B4C0' }}>{cap}</span>
+                <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A7B4C0' }}>{cap}</span>
               </div>
             ))}
           </div>
@@ -389,16 +260,16 @@ export default function Page() {
           {/* Arrow 2 */}
           <div className="recon-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 60 }}>
             <svg width="100%" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="0" y1="12" x2="72" y2="12" stroke="#3BA7C7" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 8" strokeLinecap="round" style={{ animation: 'dash-flow 1.5s linear 0.5s infinite' }} />
+              <line x1="0" y1="12" x2="72" y2="12" stroke="#3BA7C7" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 8" strokeLinecap="round"  />
               <polygon points="68,7 80,12 68,17" fill="#3BA7C7" fillOpacity="0.6" />
             </svg>
           </div>
 
           {/* Outputs */}
           <div>
-            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, color: '#4A5568', letterSpacing: 2, marginBottom: 20, textTransform: 'uppercase' }}>OPERATIONAL OUTPUTS</div>
+            <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 2, marginBottom: 20, textTransform: 'uppercase' }}>OPERATIONAL OUTPUTS</div>
             {[
-              { label: 'Matched Revenue', color: '#10B981' },
+              { label: 'Confirmed Revenue', color: '#10B981' },
               { label: 'Unresolved Alerts', color: '#FF4D6A' },
               { label: 'Executive Analytics', color: '#8B5CF6' },
               { label: 'Review Queues', color: '#FF6B35' },
@@ -410,7 +281,7 @@ export default function Page() {
                 boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
               }}>
                 <div style={{ width: 6, height: 6, borderRadius: '50%', background: item.color, flexShrink: 0 }} />
-                <span style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: '#A7B4C0' }}>{item.label}</span>
+                <span style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#A7B4C0' }}>{item.label}</span>
               </div>
             ))}
           </div>
@@ -419,11 +290,11 @@ export default function Page() {
 
       {/* ── SECTION 8: WORKFLOW WALKTHROUGH ──────────────────── */}
       <section className="section-pad" style={{ background: '#0F141A', padding: '86px 80px' }}>
-        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE WORKFLOW</div>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', marginBottom: 16, lineHeight: 1.14 }}>See Zuredex in action.</h2>
-        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 16, color: '#A7B4C0', marginBottom: 48, lineHeight: 1.75, maxWidth: 600 }}>
-          Zuredex processes surgical case sheets, matches them against purchase orders, and surfaces revenue at risk
-          automatically — across the full reconciliation and territory workflow.
+        <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE WORKFLOW</div>
+        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', marginBottom: 16, lineHeight: 1.14 }}>See Zuredex in action.</h2>
+        <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', marginBottom: 48, lineHeight: 1.75, maxWidth: 600 }}>
+          AI reads it, a person confirms every case in Manual Review.
+          Match reviewed case sheets to purchase orders and see confirmed revenue alongside cases awaiting a PO.
         </p>
 
         <div style={{
@@ -432,22 +303,23 @@ export default function Page() {
           overflow: 'hidden', aspectRatio: '16 / 9', position: 'relative',
           boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
         }}>
-          <img
-            src="/territory-desktop.png"
+          <Image
+            src={territory}
+            sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1060px) calc(100vw - 160px), 900px"
             alt="Zuredex territory intelligence dashboard with facility drill-down"
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', background: '#151B22' }}
           />
         </div>
 
-        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#4A5568', textAlign: 'center', marginTop: 16 }}>
+        <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', textAlign: 'center', marginTop: 16 }}>
           Sample data shown
         </div>
       </section>
 
       {/* ── SECTION 9: OPERATIONAL VISIBILITY ────────────────── */}
       <section id="analytics" className="section-pad" style={{ background: '#07182A', borderTop: '1px solid #1C2430', borderBottom: '1px solid #1C2430', padding: '86px 80px' }}>
-        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>OPERATIONAL ANALYTICS</div>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 0, lineHeight: 1.14, maxWidth: 700 }}>
+        <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>OPERATIONAL ANALYTICS</div>
+        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 0, lineHeight: 1.14, maxWidth: 700 }}>
           Visibility built around how device sales organizations actually work.
         </h2>
 
@@ -458,7 +330,7 @@ export default function Page() {
           border: '1px solid #1C2430', borderLeft: '3px solid #3BA7C7',
           borderRadius: 4, padding: '28px 36px',
         }}>
-          <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 20, color: '#F4F7FA', lineHeight: 1.5 }}>
+          <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: '#F4F7FA', lineHeight: 1.5 }}>
             Generic CRMs track relationships.<br />
             Zuredex tracks actual surgical revenue.
           </div>
@@ -478,7 +350,7 @@ export default function Page() {
               { label: 'Monthly Revenue Trend', color: '#8B5CF6' },
             ].map(stat => (
               <div key={stat.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 0', borderBottom: '1px solid #1C2430' }}>
-                <span style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: '#A7B4C0' }}>{stat.label}</span>
+                <span style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 14, color: '#A7B4C0' }}>{stat.label}</span>
                 <div style={{ width: 8, height: 8, borderRadius: '50%', background: stat.color, flexShrink: 0 }} />
               </div>
             ))}
@@ -488,17 +360,14 @@ export default function Page() {
           <div>
             <div style={{ marginBottom: 32 }}>
               {[
-                { name: 'Alex Rivera', pct: 92.1, color: '#10B981' },
-                { name: 'Jordan Kim', pct: 74.4, color: '#F59E0B' },
-                { name: 'Casey Nguyen', pct: 93.3, color: '#10B981' },
+                { name: 'Alex Rivera', color: '#10B981' },
+                { name: 'Jordan Kim', color: '#F59E0B' },
+                { name: 'Casey Nguyen', color: '#10B981' },
               ].map(rep => (
                 <div key={rep.name} style={{ marginBottom: 22 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 7 }}>
-                    <span style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: '#F4F7FA' }}>{rep.name}</span>
-                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: rep.color }}>{rep.pct}%</span>
-                  </div>
-                  <div style={{ width: '100%', height: 6, background: '#1C2430', borderRadius: 3 }}>
-                    <div style={{ width: `${rep.pct}%`, height: '100%', background: rep.color, borderRadius: 3 }} />
+                    <span style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#F4F7FA' }}>{rep.name}</span>
+                    <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 11, color: rep.color }}>—</span>
                   </div>
                 </div>
               ))}
@@ -506,14 +375,14 @@ export default function Page() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
               {[
-                { value: '$129.8K', label: 'Total Reconciled', color: '#10B981' },
-                { value: '$19.3K', label: 'At Risk', color: '#FF4D6A' },
-                { value: '1.4d', label: 'Avg Match Time', color: '#F59E0B' },
-                { value: '80.9%', label: 'Match Rate', color: '#3BA7C7' },
+                { value: '—', label: 'Total Reconciled', color: '#10B981' },
+                { value: '—', label: 'At Risk', color: '#FF4D6A' },
+                { value: '—', label: 'Avg Match Time', color: '#F59E0B' },
+                { value: '—', label: 'Match Rate', color: '#3BA7C7' },
               ].map(stat => (
                 <div key={stat.label} className="glass-card" style={{ borderRadius: 6, padding: '16px 18px' }}>
-                  <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 20, color: stat.color }}>{stat.value}</div>
-                  <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, color: '#4A5568', letterSpacing: 1, marginTop: 4, textTransform: 'uppercase' }}>{stat.label}</div>
+                  <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: stat.color }}>{stat.value}</div>
+                  <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 1, marginTop: 4, textTransform: 'uppercase' }}>{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -523,8 +392,8 @@ export default function Page() {
 
       {/* ── SECTION 10: REAL PRODUCT PROOF ───────────────────── */}
       <section className="section-pad" style={{ background: '#07182A', borderTop: '1px solid #1C2430', padding: '86px 80px' }}>
-        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>LIVE PRODUCT</div>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 48, maxWidth: 700 }}>
+        <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>PRODUCT VIEWS</div>
+        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 48, maxWidth: 700 }}>
           Built for the office and the field.
         </h2>
         <div
@@ -535,7 +404,7 @@ export default function Page() {
             background: '#0F141A', border: '1px solid #1C2430', borderRadius: 8,
             overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
           }}>
-            <img src="/dashboard-desktop.png" alt="Zuredex admin revenue dashboard" style={{ display: 'block', width: '100%', height: 'auto' }} />
+            <Image src={dashboard} sizes="(max-width: 768px) calc(100vw - 48px), 660px" alt="Zuredex admin revenue dashboard" style={{ display: 'block', width: '100%', height: 'auto' }} />
           </div>
           {/* Overlapping mobile pair — dashboard behind/top-left, cases in front/bottom-right */}
           <div style={{ position: 'relative', width: '100%', maxWidth: 320, height: 420, margin: '0 auto' }}>
@@ -544,29 +413,29 @@ export default function Page() {
               background: '#0F141A', border: '1px solid #1C2430', borderRadius: 8,
               overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
             }}>
-              <img src="/dashboard-mobile.png" alt="Zuredex mobile dashboard" style={{ display: 'block', width: '100%', height: 'auto' }} />
+              <Image src={mobileDashboard} sizes="200px" alt="Zuredex mobile dashboard" style={{ display: 'block', width: '100%', height: 'auto' }} />
             </div>
             <div style={{
               position: 'absolute', bottom: 0, right: 0, width: '62%', zIndex: 2,
               background: '#0F141A', border: '1px solid #22313D', borderRadius: 8,
               overflow: 'hidden', boxShadow: '0 12px 28px rgba(0,0,0,0.6)',
             }}>
-              <img src="/cases-mobile.png" alt="Zuredex mobile case list" style={{ display: 'block', width: '100%', height: 'auto' }} />
+              <Image src={mobileCases} sizes="200px" alt="Zuredex mobile case list" style={{ display: 'block', width: '100%', height: 'auto' }} />
             </div>
           </div>
         </div>
-        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#4A5568', textAlign: 'center', marginTop: 32 }}>
-          Desktop for operations, mobile for the field&nbsp;&middot;&nbsp;reps get the same real-time visibility wherever they are.
+        <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', textAlign: 'center', marginTop: 32 }}>
+          Desktop for operations, mobile for the field&nbsp;&middot;&nbsp;reps can review case status and performance.
         </div>
       </section>
 
       {/* ── SECTION 11: SECURITY ──────────────────────────────── */}
       <section id="security" className="section-pad" style={{ background: '#07182A', borderTop: '1px solid #1C2430', borderBottom: '1px solid #1C2430', padding: '86px 80px' }}>
-        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>SECURITY &amp; GOVERNANCE</div>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 16 }}>
+        <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>SECURITY &amp; GOVERNANCE</div>
+        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 16 }}>
           Designed for secure<br />operational workflows.
         </h2>
-        <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: '#4A5568', fontStyle: 'italic', maxWidth: 600, marginBottom: 48, lineHeight: 1.75 }}>
+        <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 14, color: '#A1B8C9', fontStyle: 'italic', maxWidth: 600, marginBottom: 48, lineHeight: 1.75 }}>
           Built to minimize PHI exposure and support secure, BAA-governed operational workflows. Zuredex extracts
           operational and commercial data for reconciliation — patient identifiers are not required for matching
           and are not extracted into structured records.
@@ -585,11 +454,11 @@ export default function Page() {
                 width: 32, height: 32, flexShrink: 0,
                 background: '#3BA7C714', border: '1px solid #1C2430', borderRadius: 4,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: "'DM Mono', monospace", fontSize: 7, color: '#3BA7C7', letterSpacing: 0.5, fontWeight: 500,
+                fontFamily: "var(--font-dm), monospace", fontSize: 7, color: '#3BA7C7', letterSpacing: 0.5, fontWeight: 500,
               }}>{item.icon}</div>
               <div>
-                <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 14, color: '#F4F7FA', marginBottom: 6 }}>{item.title}</div>
-                <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: '#A7B4C0', lineHeight: 1.75 }}>{item.body}</div>
+                <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 14, color: '#F4F7FA', marginBottom: 6 }}>{item.title}</div>
+                <div style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#A7B4C0', lineHeight: 1.75 }}>{item.body}</div>
               </div>
             </div>
           ))}
@@ -608,15 +477,15 @@ export default function Page() {
         <div className="z-diagonal" style={{ zIndex: 0, maskImage: 'linear-gradient(to bottom, transparent 0%, black 40%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 40%)' }} />
 
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 680, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 20 }}>EARLY ACCESS</div>
-          <h2 className="cta-headline" style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 44, color: '#F4F7FA', letterSpacing: -1, lineHeight: 1.12, marginBottom: 20 }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 20 }}>EXPLORE THE WORKFLOW</div>
+          <h2 className="cta-headline" style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 44, color: '#F4F7FA', letterSpacing: -1, lineHeight: 1.12, marginBottom: 20 }}>
             Operational intelligence for modern medical device organizations.
           </h2>
-          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 300, fontSize: 18, color: '#A7B4C0', lineHeight: 1.75, maxWidth: 520, margin: '0 auto 24px' }}>
-            Zuredex is preparing pilot deployments for distributors seeking to reduce manual reconciliation and improve revenue visibility.
+          <p style={{ fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 18, color: '#A7B4C0', lineHeight: 1.75, maxWidth: 520, margin: '0 auto 24px' }}>
+            See how Zuredex connects document intake, Manual Review, PO matching, and commission calculations.
           </p>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: '#4A5568', letterSpacing: 1.5, marginBottom: 36, textTransform: 'uppercase', lineHeight: 1.8 }}>
-            PILOT-READY · INDIANA-BASED · SEEKING DESIGN PARTNERS
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', letterSpacing: 1.5, marginBottom: 36, textTransform: 'uppercase', lineHeight: 1.8 }}>
+            CASE SHEETS · PURCHASE ORDERS · COMMISSIONS
           </div>
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             {/* SWAP: replace Calendly URL with your actual scheduling link */}
@@ -632,7 +501,7 @@ export default function Page() {
             >Send a Message</a>
           </div>
           <div style={{ marginTop: 36, textAlign: 'center' }}>
-            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, color: '#3BA7C7', letterSpacing: 4, textTransform: 'uppercase', marginBottom: 12 }}>
+            <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#3BA7C7', letterSpacing: 4, textTransform: 'uppercase', marginBottom: 12 }}>
               WHY WE BUILT THIS
             </div>
             <div style={{
@@ -643,11 +512,11 @@ export default function Page() {
               borderRadius: '0 4px 4px 0',
               textAlign: 'left',
             }}>
-              <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, fontStyle: 'italic', color: '#A7B4C0', lineHeight: 1.8, margin: 0 }}>
+              <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 14, fontStyle: 'italic', color: '#A7B4C0', lineHeight: 1.8, margin: 0 }}>
                 Built in Indiana by Zuredex LLC, informed by firsthand exposure to medical device sales operations,
                 manual PO reconciliation, and rep-level reporting workflows.
               </p>
-              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, color: '#4A5568', letterSpacing: 2, marginTop: 12, textTransform: 'uppercase' }}>
+              <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 2, marginTop: 12, textTransform: 'uppercase' }}>
                 — ZUREDEX · INDIANA, USA · 2026
               </div>
             </div>
@@ -655,6 +524,7 @@ export default function Page() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </>
   );
