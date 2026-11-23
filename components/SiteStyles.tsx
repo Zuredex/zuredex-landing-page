@@ -8,6 +8,11 @@ export default function SiteStyles() {
   return (
     <style>{`
       :root {
+        --navy-950: #061322;
+        --navy-800: #142c43;
+        --glow-blue: #396dcc;
+        --cyan: #30bfd1;
+        --glass: rgba(21, 27, 34, 0.72);
         --bg:         #07182A;
         --surface:    #0F141A;
         --elevated:   #151B22;
@@ -30,7 +35,43 @@ export default function SiteStyles() {
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
       body { background: #07182A !important; color: #F4F7FA; flex-direction: column; }
-      main { flex: 1; }
+      main {
+        flex: 1;
+        background:
+          radial-gradient(ellipse at 75% 0%, rgba(46, 88, 121, .08), transparent 55%),
+          linear-gradient(110deg, var(--navy-950), var(--navy-800) 70%, var(--navy-950));
+      }
+      .landing-hero {
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .landing-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(circle, rgba(168, 204, 226, .16) 1px, transparent 1.5px) center / 22px 22px;
+        transform: perspective(900px) rotateX(24deg) scale(1.12);
+        mask-image: radial-gradient(ellipse at 60% 48%, black 10%, transparent 68%);
+      }
+      .landing-hero .dashboard-preview { position: relative; }
+      .landing-hero .dashboard-preview::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: -18% -20%;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse at 70% 45%, color-mix(in srgb, var(--glow-blue) 15%, transparent), transparent 65%),
+          radial-gradient(ellipse at 38% 55%, color-mix(in srgb, var(--cyan) 12%, transparent), transparent 66%);
+      }
+      #platform {
+        background:
+          radial-gradient(ellipse 58% 50% at 72% 50%, color-mix(in srgb, var(--glow-blue) 14%, transparent), transparent),
+          radial-gradient(ellipse 50% 46% at 20% 50%, color-mix(in srgb, var(--cyan) 10%, transparent), transparent);
+      }
       [id] { scroll-margin-top: 80px; }
       :focus-visible { outline: 3px solid #7FD1DF; outline-offset: 4px; }
       .skip-link { position: fixed; top: 8px; left: 12px; z-index: 200; transform: translateY(-180%); background: #F4F7FA; color: #07182A; padding: 12px 18px; border-radius: 4px; }
@@ -132,14 +173,16 @@ export default function SiteStyles() {
       }
 
       .glass-card {
-        background: rgba(21, 27, 34, 0.72);
+        background: var(--glass);
         border: 1px solid rgba(255,255,255,0.06);
+        border-top: 1px solid rgba(255,255,255,0.18);
+        border-radius: 20px;
         box-shadow: 0 2px 12px rgba(0,0,0,0.4);
         transition: transform 150ms ease, border-color 150ms ease;
       }
       .glass-card:hover {
         transform: translateY(-1px);
-        border-color: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.18) rgba(255,255,255,0.1) rgba(255,255,255,0.1);
       }
 
       .btn-primary {

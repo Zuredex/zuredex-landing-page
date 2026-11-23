@@ -16,21 +16,7 @@ export default function Page() {
       <main id="main-content" tabIndex={-1}>
 
       {/* ── SECTION 2: HERO ───────────────────────────────────── */}
-      <section style={{ minHeight: '100vh', background: '#07182A', position: 'relative', overflow: 'hidden' }}>
-        {/* Grid overlay — 3% opacity, no animation */}
-        <div style={{
-          position: 'absolute', inset: 0, zIndex: 0,
-          backgroundImage: 'linear-gradient(rgba(28,36,48,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(28,36,48,0.03) 1px, transparent 1px)',
-          backgroundSize: '44px 44px',
-        }} />
-        {/* Subtle teal radial — 4% opacity, contained radius */}
-        <div style={{
-          position: 'absolute', inset: 0, zIndex: 0,
-          background: 'radial-gradient(circle 200px at 18% 60%, rgba(59,167,199,0.04), transparent)',
-        }} />
-        {/* Z diagonal motif — fades out toward bottom */}
-        <div className="z-diagonal" style={{ zIndex: 0, maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)' }} />
-
+      <section className="landing-hero">
         <div
           className="hero-grid"
           style={{
@@ -121,7 +107,7 @@ export default function Page() {
       </section>
 
       {/* ── SECTION 3: CAPABILITY PILLARS ─────────────────────── */}
-      <section className="section-pad" style={{ background: '#0F141A', padding: '86px 80px', position: 'relative', overflow: 'hidden' }}>
+      <section className="section-pad" style={{ padding: '86px 80px', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>SIX CAPABILITIES</div>
           <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 16 }}>
@@ -139,7 +125,7 @@ export default function Page() {
               { num: '05', title: 'Device Usage', body: "Visibility into device usage in your case data." },
               { num: '06', title: 'Rep Portal', body: 'Reps get their own view — case status, pipeline, and performance — not just administrators.' },
             ].map(item => (
-              <div key={item.title} className="glass-card" style={{ display: 'flex', gap: 14, padding: 20, borderRadius: 6 }}>
+              <div key={item.title} className="glass-card" style={{ display: 'flex', gap: 14, padding: 20 }}>
                 <div style={{
                   width: 32, height: 32, flexShrink: 0,
                   background: '#3BA7C714', border: '1px solid #1C2430', borderRadius: 4,
@@ -163,8 +149,6 @@ export default function Page() {
       <section
         className="trust-bar"
         style={{
-          background: '#0F141A',
-          borderTop: '1px solid #1C2430', borderBottom: '1px solid #1C2430',
           padding: '20px 80px',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           flexWrap: 'wrap', gap: 24,
@@ -186,7 +170,7 @@ export default function Page() {
       </section>
 
       {/* ── SECTION 6: WHY NOW ────────────────────────────────── */}
-      <section id="platform" className="section-pad" style={{ background: '#0F141A', padding: '86px 80px' }}>
+      <section id="platform" className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE DAILY WORKFLOW</div>
         <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 16, maxWidth: 700, lineHeight: 1.14 }}>
           Bring case sheets, POs, and commissions into view.
@@ -211,7 +195,7 @@ export default function Page() {
       </section>
 
       {/* ── SECTION 7: RECONCILIATION ENGINE ─────────────────── */}
-      <section id="workflow" className="section-pad" style={{ background: '#07182A', borderTop: '1px solid #1C2430', borderBottom: '1px solid #1C2430', padding: '86px 80px' }}>
+      <section id="workflow" className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE ENGINE</div>
         <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 16, lineHeight: 1.14 }}>
           From fragmented documents to<br />operational intelligence.
@@ -291,7 +275,7 @@ export default function Page() {
       </section>
 
       {/* ── SECTION 8: WORKFLOW WALKTHROUGH ──────────────────── */}
-      <section className="section-pad" style={{ background: '#0F141A', padding: '86px 80px' }}>
+      <section className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE WORKFLOW</div>
         <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', marginBottom: 16, lineHeight: 1.14 }}>See Zuredex in action.</h2>
         <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', marginBottom: 48, lineHeight: 1.75, maxWidth: 600 }}>
@@ -319,7 +303,7 @@ export default function Page() {
       </section>
 
       {/* ── SECTION 9: OPERATIONAL VISIBILITY ────────────────── */}
-      <section id="analytics" className="section-pad" style={{ background: '#07182A', borderTop: '1px solid #1C2430', borderBottom: '1px solid #1C2430', padding: '86px 80px' }}>
+      <section id="analytics" className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>OPERATIONAL ANALYTICS</div>
         <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 0, lineHeight: 1.14, maxWidth: 700 }}>
           Visibility built around how medical device distributors actually work.
@@ -377,7 +361,7 @@ export default function Page() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 14 }}>
               {analyticsSampleMetrics.map(stat => (
-                <div key={stat.label} className="glass-card sample-metric" role="group" aria-label={`${sampleCaption}: ${stat.label}, ${stat.value}`} style={{ borderRadius: 6, padding: '16px 18px' }}>
+                <div key={stat.label} className="glass-card sample-metric" role="group" aria-label={`${sampleCaption}: ${stat.label}, ${stat.value}`} style={{ padding: '16px 18px' }}>
                   <div className="sample-value" style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: stat.color }}>{stat.value}</div>
                   <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 1, marginTop: 4, textTransform: 'uppercase' }}>{stat.label}</div>
                   <small className="sample-label">{sampleCaption}</small>
@@ -389,7 +373,7 @@ export default function Page() {
       </section>
 
       {/* ── SECTION 10: REAL PRODUCT PROOF ───────────────────── */}
-      <section className="section-pad" style={{ background: '#07182A', borderTop: '1px solid #1C2430', padding: '86px 80px' }}>
+      <section className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>PRODUCT VIEWS</div>
         <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 48, maxWidth: 700 }}>
           Built for the office and the field.
@@ -428,7 +412,7 @@ export default function Page() {
       </section>
 
       {/* ── SECTION 11: SECURITY ──────────────────────────────── */}
-      <section id="security" className="section-pad" style={{ background: '#07182A', borderTop: '1px solid #1C2430', borderBottom: '1px solid #1C2430', padding: '86px 80px' }}>
+      <section id="security" className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>SECURITY &amp; GOVERNANCE</div>
         <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 16 }}>
           Designed for secure<br />operational workflows.
@@ -447,7 +431,7 @@ export default function Page() {
             { icon: 'SHA', title: 'Duplicate Prevention', body: 'SHA-256 document fingerprinting prevents duplicate uploads from entering the pipeline.' },
             { icon: 'PHI', title: 'PHI-Minimized by Design', body: 'Reconciliation runs on operational and commercial fields, not clinical detail. Patient identifiers are not required for matching, and document access is access-controlled and audit-logged.' },
           ].map(item => (
-            <div key={item.title} className="glass-card" style={{ display: 'flex', gap: 14, padding: 20, borderRadius: 6 }}>
+            <div key={item.title} className="glass-card" style={{ display: 'flex', gap: 14, padding: 20 }}>
               <div style={{
                 width: 32, height: 32, flexShrink: 0,
                 background: '#3BA7C714', border: '1px solid #1C2430', borderRadius: 4,
@@ -464,7 +448,7 @@ export default function Page() {
       </section>
 
       {/* ── SECTION 12: FINAL CTA ─────────────────────────────── */}
-      <section id="cta" className="cta-pad" style={{ background: '#0F141A', padding: '100px 80px', position: 'relative', overflow: 'hidden' }}>
+      <section id="cta" className="cta-pad" style={{ padding: '100px 80px', position: 'relative', overflow: 'hidden' }}>
         {/* Grid — 3% opacity, no animation */}
         <div style={{
           position: 'absolute', inset: 0, zIndex: 0,
