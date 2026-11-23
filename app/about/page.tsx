@@ -83,6 +83,10 @@ export default function AboutPage() {
           <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 32 }}>
             Founder-led.
           </h2>
+          <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8, marginBottom: 32 }}>
+            Zuredex is based in Indiana. Its leadership brings together firsthand operating experience
+            in orthopedic distribution and engineering leadership.
+          </p>
           <div className="glass-card" style={{ display: "flex", alignItems: "center", gap: 20, padding: 24, borderRadius: 8 }}>
             <div style={{
               width: 56, height: 56, borderRadius: "50%", flexShrink: 0,
