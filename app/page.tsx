@@ -115,7 +115,7 @@ export default function Page() {
               <div><dt>Purchase order</dt><dd>Waiting for PO</dd></div>
               <div><dt>Revenue</dt><dd>Confirmed after review and matching</dd></div>
             </dl>
-            <p className="preview-caption">Illustrative layout · placeholders only</p>
+            <p className="preview-caption">Sample workflow view</p>
           </div>
         </div>
       </section>
