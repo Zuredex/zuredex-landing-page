@@ -40,7 +40,7 @@ export default function AboutPage() {
       <main id="main-content" tabIndex={-1}>
 
       {/* Intro */}
-      <section className="legal-pad" style={{ background: "#07182A", padding: "140px 80px 40px" }}>
+      <section className="legal-pad" style={{ padding: "140px 80px 40px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             ABOUT ZUREDEX
@@ -58,7 +58,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="section-pad" style={{ background: "#0F141A", padding: "60px 80px" }}>
+      <section className="section-pad" style={{ padding: "60px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             OUR MISSION
@@ -75,7 +75,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="section-pad" style={{ background: "#07182A", borderTop: "1px solid #1C2430", borderBottom: "1px solid #1C2430", padding: "60px 80px" }}>
+      <section className="section-pad" style={{ padding: "60px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             LEADERSHIP
@@ -86,7 +86,7 @@ export default function AboutPage() {
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8, marginBottom: 32 }}>
             Zuredex is built in Indianapolis, Indiana, by a founding team that includes firsthand operating experience inside orthopedic distribution, paired with engineering leadership. We built it to close the gap between the operating room, field reps, and hospital purchasing desks.
           </p>
-          <div className="glass-card" style={{ display: "flex", alignItems: "center", gap: 20, padding: 24, borderRadius: 8 }}>
+          <div className="glass-card" style={{ display: "flex", alignItems: "center", gap: 20, padding: 24 }}>
             <div style={{
               width: 56, height: 56, borderRadius: "50%", flexShrink: 0,
               background: "#3BA7C714", border: "1px solid #22313D",
@@ -105,7 +105,7 @@ export default function AboutPage() {
       </section>
 
       {/* Engineering & Security Focus */}
-      <section id="security" className="section-pad" style={{ background: "#0F141A", padding: "60px 80px" }}>
+      <section id="security" className="section-pad" style={{ padding: "60px 80px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             ENGINEERING &amp; SECURITY FOCUS
@@ -118,7 +118,7 @@ export default function AboutPage() {
           </p>
           <div className="security-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
             {SECURITY_POINTS.map((item) => (
-              <div key={item.title} className="glass-card" style={{ display: "flex", gap: 14, padding: 20, borderRadius: 6 }}>
+              <div key={item.title} className="glass-card" style={{ display: "flex", gap: 14, padding: 20 }}>
                 <div style={{
                   width: 32, height: 32, flexShrink: 0,
                   background: "#3BA7C714", border: "1px solid #1C2430", borderRadius: 4,
@@ -136,7 +136,7 @@ export default function AboutPage() {
       </section>
 
       {/* Company & Contact */}
-      <section className="section-pad" style={{ background: "#07182A", borderTop: "1px solid #1C2430", padding: "60px 80px" }}>
+      <section className="section-pad" style={{ padding: "60px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             COMPANY &amp; CONTACT

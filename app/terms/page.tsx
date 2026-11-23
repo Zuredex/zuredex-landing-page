@@ -121,7 +121,7 @@ export default function TermsPage() {
       <SiteNav />
       <main id="main-content" tabIndex={-1}>
 
-      <section className="legal-pad" style={{ background: "#07182A", padding: "140px 80px 80px" }}>
+      <section className="legal-pad" style={{ padding: "140px 80px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             LEGAL
