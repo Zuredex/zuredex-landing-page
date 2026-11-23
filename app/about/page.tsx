@@ -6,7 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
   title: "About — Zuredex",
-  description: "Zuredex is an operational intelligence platform for medical device sales organizations, founded in Indianapolis, Indiana.",
+  description: "Zuredex is an operational intelligence platform for medical device distributors, founded in Indianapolis, Indiana.",
 };
 
 const SECURITY_POINTS = [
@@ -49,8 +49,8 @@ export default function AboutPage() {
             About Zuredex
           </h1>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 17, color: "#A7B4C0", lineHeight: 1.8 }}>
-            Zuredex is an operational intelligence platform purpose-built for medical device sales organizations,
-            surgical distributors, and sales operations teams. Founded in Indianapolis, Indiana, Zuredex was created
+            Zuredex is an operational intelligence platform purpose-built for medical device distributors
+            and their sales operations teams. Founded in Indianapolis, Indiana, Zuredex was created
             to solve a persistent challenge in surgical revenue workflows: the manual friction, slow turnaround, and
             revenue leakage caused by reconciling surgical case sheets against enterprise purchase orders.
           </p>
@@ -83,6 +83,9 @@ export default function AboutPage() {
           <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 32 }}>
             Founder-led.
           </h2>
+          <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8, marginBottom: 32 }}>
+            Zuredex is built in Indianapolis, Indiana, by a founding team that includes firsthand operating experience inside orthopedic distribution, paired with engineering leadership. We built it to close the gap between the operating room, field reps, and hospital purchasing desks.
+          </p>
           <div className="glass-card" style={{ display: "flex", alignItems: "center", gap: 20, padding: 24, borderRadius: 8 }}>
             <div style={{
               width: 56, height: 56, borderRadius: "50%", flexShrink: 0,
@@ -108,11 +111,10 @@ export default function AboutPage() {
             ENGINEERING &amp; SECURITY FOCUS
           </div>
           <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 20, maxWidth: 700 }}>
-            Built entirely on Google Cloud infrastructure.
+            Product infrastructure
           </h2>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8, maxWidth: 700, marginBottom: 40 }}>
-            Zuredex is built entirely on Google Cloud infrastructure and operates under a HIPAA Business Associate
-            Agreement (BAA).
+            Zuredex is built on Google Cloud infrastructure.
           </p>
           <div className="security-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
             {SECURITY_POINTS.map((item) => (

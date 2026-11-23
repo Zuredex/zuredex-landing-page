@@ -49,6 +49,9 @@ export default function SiteStyles() {
       .preview-metrics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
       .preview-card { border: 1px solid #22313D; border-top: 2px solid #3BA7C7; border-radius: 6px; padding: 12px; background: #151B22; }
       .preview-card span { font-size: 24px; color: #F4F7FA; }
+      .preview-card, .sample-metric { min-width: 0; }
+      .preview-card span, .sample-value { overflow-wrap: anywhere; }
+      .sample-label { display: block; margin-top: 8px; color: #A1B8C9; font: 12px/1.5 var(--font-plex), sans-serif; }
       .preview-note { margin: 20px 0; color: #F4F7FA; border-left: 2px solid #3BA7C7; padding-left: 12px; }
       .preview-statuses > div { display: grid; grid-template-columns: 1fr 1.4fr; gap: 16px; padding: 12px 0; border-top: 1px solid #22313D; }
       .preview-statuses dd { color: #7FD1DF; }

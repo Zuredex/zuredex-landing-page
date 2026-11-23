@@ -6,6 +6,7 @@ import mobileCases from "@/public/cases-mobile.png";
 import SiteStyles from "@/components/SiteStyles";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import { analyticsSampleMetrics, heroSampleMetrics, sampleCaption } from "@/lib/sample-data";
 
 export default function Page() {
   return (
@@ -45,7 +46,7 @@ export default function Page() {
               fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7',
               letterSpacing: 3, textTransform: 'uppercase',
               borderLeft: '2px solid #3BA7C7', paddingLeft: 12, marginBottom: 24,
-            }}>RECONCILIATION · TERRITORY · COMMISSIONS</div>
+            }}>RECONCILE • OPERATE • UNDERSTAND</div>
 
             <h1
               className="hero-headline"
@@ -63,7 +64,7 @@ export default function Page() {
               fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 18, color: '#A7B4C0',
               lineHeight: 1.75, maxWidth: 480, marginTop: 20,
             }}>
-              AI-powered reconciliation and revenue intelligence for medical device sales organizations.
+              AI-powered reconciliation and revenue intelligence for medical device distributors.
             </p>
 
             <p style={{
@@ -96,14 +97,15 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Illustrative placeholders, not customer metrics. */}
-          <div className="dashboard-preview" aria-label="Illustrative workflow preview">
+          {/* Static fictional values are rendered on the server. */}
+          <div className="dashboard-preview" role="group" aria-label="Sample workflow preview">
             <div className="preview-heading">Zuredex · workflow preview</div>
             <div className="preview-metrics">
-              {['Cases', 'Confirmed revenue', 'Commissions', 'Needs review'].map(label => (
-                <div className="preview-card" key={label}>
+              {heroSampleMetrics.map(({ label, value }) => (
+                <div className="preview-card" key={label} role="group" aria-label={`${sampleCaption}: ${label}, ${value}`}>
                   <div>{label}</div>
-                  <span aria-label="Placeholder">—</span>
+                  <span>{value}</span>
+                  <small className="sample-label">{sampleCaption}</small>
                 </div>
               ))}
             </div>
@@ -113,7 +115,7 @@ export default function Page() {
               <div><dt>Purchase order</dt><dd>Waiting for PO</dd></div>
               <div><dt>Revenue</dt><dd>Confirmed after review and matching</dd></div>
             </dl>
-            <p className="preview-caption">Illustrative layout · placeholders only</p>
+            <p className="preview-caption">Sample workflow view</p>
           </div>
         </div>
       </section>
@@ -312,7 +314,7 @@ export default function Page() {
         </div>
 
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', textAlign: 'center', marginTop: 16 }}>
-          Sample data shown
+          {sampleCaption}
         </div>
       </section>
 
@@ -320,7 +322,7 @@ export default function Page() {
       <section id="analytics" className="section-pad" style={{ background: '#07182A', borderTop: '1px solid #1C2430', borderBottom: '1px solid #1C2430', padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>OPERATIONAL ANALYTICS</div>
         <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 0, lineHeight: 1.14, maxWidth: 700 }}>
-          Visibility built around how device sales organizations actually work.
+          Visibility built around how medical device distributors actually work.
         </h2>
 
         {/* Callout */}
@@ -373,16 +375,12 @@ export default function Page() {
               ))}
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-              {[
-                { value: '—', label: 'Total Reconciled', color: '#10B981' },
-                { value: '—', label: 'At Risk', color: '#FF4D6A' },
-                { value: '—', label: 'Avg Match Time', color: '#F59E0B' },
-                { value: '—', label: 'Match Rate', color: '#3BA7C7' },
-              ].map(stat => (
-                <div key={stat.label} className="glass-card" style={{ borderRadius: 6, padding: '16px 18px' }}>
-                  <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: stat.color }}>{stat.value}</div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 14 }}>
+              {analyticsSampleMetrics.map(stat => (
+                <div key={stat.label} className="glass-card sample-metric" role="group" aria-label={`${sampleCaption}: ${stat.label}, ${stat.value}`} style={{ borderRadius: 6, padding: '16px 18px' }}>
+                  <div className="sample-value" style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: stat.color }}>{stat.value}</div>
                   <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 1, marginTop: 4, textTransform: 'uppercase' }}>{stat.label}</div>
+                  <small className="sample-label">{sampleCaption}</small>
                 </div>
               ))}
             </div>
@@ -479,7 +477,7 @@ export default function Page() {
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 680, margin: '0 auto', textAlign: 'center' }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 20 }}>EXPLORE THE WORKFLOW</div>
           <h2 className="cta-headline" style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 44, color: '#F4F7FA', letterSpacing: -1, lineHeight: 1.12, marginBottom: 20 }}>
-            Operational intelligence for modern medical device organizations.
+            Operational intelligence for modern medical device distributors.
           </h2>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 18, color: '#A7B4C0', lineHeight: 1.75, maxWidth: 520, margin: '0 auto 24px' }}>
             See how Zuredex connects document intake, Manual Review, PO matching, and commission calculations.
