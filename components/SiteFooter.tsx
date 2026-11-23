@@ -2,6 +2,8 @@
  * Shared footer for every page. All links are real routes/anchors — no
  * placeholder hrefs.
  */
+import Image from "next/image";
+
 export default function SiteFooter() {
   return (
     <footer style={{ background: '#07182A', borderTop: '1px solid #1C2430', padding: '48px 80px' }}>
@@ -9,7 +11,7 @@ export default function SiteFooter() {
         {/* Left */}
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <img src="/branding/zuredex-symbol.svg" width="20" height="20" alt="Zuredex" style={{ display: 'block' }} />
+            <Image src="/branding/zuredex-symbol.svg" width={20} height={20} alt="Zuredex" style={{ display: 'block' }} />
             <span style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: 2, color: '#F4F7FA' }}>ZUREDEX</span>
           </div>
           <div style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#A1B8C9', marginTop: 8, lineHeight: 1.75 }}>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const links = [['Platform', '/#platform'], ['Workflow', '/#workflow'], ['Security', '/#security'], ['Analytics', '/#analytics'], ['Contact', '/#cta']];
 
@@ -48,7 +49,7 @@ export default function SiteNav() {
           }
         }}
       >
-        <a href="/" className="brand-link">
+        <Link href="/" className="brand-link">
           {/* Existing website symbol; no branding change. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/branding/zuredex-symbol.svg" width="28" height="28" alt="Zuredex" />
@@ -56,7 +57,7 @@ export default function SiteNav() {
             <span className="brand-name">ZUREDEX</span>
             <span className="brand-tagline">OPERATIONAL INTELLIGENCE</span>
           </span>
-        </a>
+        </Link>
         <div className="nav-desktop">
           {links.map(([label, href]) => <a key={label} href={href} className="nav-link">{label}</a>)}
         </div>

@@ -6,6 +6,7 @@ import mobileCases from "@/public/cases-mobile.png";
 import SiteStyles from "@/components/SiteStyles";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import { analyticsSampleMetrics, heroSampleMetrics, sampleCaption } from "@/lib/sample-data";
 
 export default function Page() {
   return (
@@ -96,14 +97,15 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Illustrative placeholders, not customer metrics. */}
-          <div className="dashboard-preview" aria-label="Illustrative workflow preview">
+          {/* Static fictional values are rendered on the server. */}
+          <div className="dashboard-preview" role="group" aria-label="Sample workflow preview">
             <div className="preview-heading">Zuredex · workflow preview</div>
             <div className="preview-metrics">
-              {['Cases', 'Confirmed revenue', 'Commissions', 'Needs review'].map(label => (
-                <div className="preview-card" key={label}>
+              {heroSampleMetrics.map(({ label, value }) => (
+                <div className="preview-card" key={label} role="group" aria-label={`${sampleCaption}: ${label}, ${value}`}>
                   <div>{label}</div>
-                  <span aria-label="Placeholder">—</span>
+                  <span>{value}</span>
+                  <small className="sample-label">{sampleCaption}</small>
                 </div>
               ))}
             </div>
@@ -312,7 +314,7 @@ export default function Page() {
         </div>
 
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', textAlign: 'center', marginTop: 16 }}>
-          Sample data shown
+          {sampleCaption}
         </div>
       </section>
 
@@ -373,16 +375,12 @@ export default function Page() {
               ))}
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-              {[
-                { value: '—', label: 'Total Reconciled', color: '#10B981' },
-                { value: '—', label: 'At Risk', color: '#FF4D6A' },
-                { value: '—', label: 'Avg Match Time', color: '#F59E0B' },
-                { value: '—', label: 'Match Rate', color: '#3BA7C7' },
-              ].map(stat => (
-                <div key={stat.label} className="glass-card" style={{ borderRadius: 6, padding: '16px 18px' }}>
-                  <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: stat.color }}>{stat.value}</div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 14 }}>
+              {analyticsSampleMetrics.map(stat => (
+                <div key={stat.label} className="glass-card sample-metric" role="group" aria-label={`${sampleCaption}: ${stat.label}, ${stat.value}`} style={{ borderRadius: 6, padding: '16px 18px' }}>
+                  <div className="sample-value" style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: stat.color }}>{stat.value}</div>
                   <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 1, marginTop: 4, textTransform: 'uppercase' }}>{stat.label}</div>
+                  <small className="sample-label">{sampleCaption}</small>
                 </div>
               ))}
             </div>
