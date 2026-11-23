@@ -10,6 +10,7 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
   title: "Terms of Service — Zuredex",
   description: "Zuredex Platform Terms of Service.",
 };
@@ -118,25 +119,26 @@ export default function TermsPage() {
     <>
       <SiteStyles />
       <SiteNav />
+      <main id="main-content" tabIndex={-1}>
 
       <section className="legal-pad" style={{ background: "#07182A", padding: "140px 80px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             LEGAL
           </div>
-          <h1 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 40, color: "#F4F7FA", letterSpacing: -0.5, lineHeight: 1.14, marginBottom: 12 }}>
+          <h1 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 40, color: "#F4F7FA", letterSpacing: -0.5, lineHeight: 1.14, marginBottom: 12 }}>
             Terms of Service
           </h1>
-          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 12, color: "#4A5568", marginBottom: 48 }}>
+          <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 12, color: "#A1B8C9", marginBottom: 48 }}>
             Version {TERMS_VERSION}
           </div>
 
           {TERMS_SECTIONS.map((s) => (
             <div key={s.heading} style={{ marginBottom: 36 }}>
-              <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 18, color: "#F4F7FA", marginBottom: 10 }}>
+              <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 18, color: "#F4F7FA", marginBottom: 10 }}>
                 {s.heading}
               </h2>
-              <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 15, color: "#A7B4C0", lineHeight: 1.8 }}>
+              <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 15, color: "#A7B4C0", lineHeight: 1.8 }}>
                 {s.body}
               </p>
             </div>
@@ -147,7 +149,7 @@ export default function TermsPage() {
             borderLeft: "2px solid #3BA7C7", background: "rgba(59,167,199,0.03)",
             borderRadius: "0 4px 4px 0",
           }}>
-            <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, fontStyle: "italic", color: "#4A5568", lineHeight: 1.75 }}>
+            <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, fontStyle: "italic", color: "#A1B8C9", lineHeight: 1.75 }}>
               Questions about these Terms? Contact us at{" "}
               <a href="mailto:analytics@zuredex.com" className="legal-link">analytics@zuredex.com</a>.
             </p>
@@ -155,6 +157,7 @@ export default function TermsPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </>
   );

@@ -1,44 +1,55 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Syne, IBM_Plex_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Syne({
+  variable: "--font-syne",
+  weight: "700",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const body = IBM_Plex_Sans({
+  variable: "--font-plex",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
+
+const mono = DM_Mono({
+  variable: "--font-dm",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zuredex.com"),
+  metadataBase: new URL("https://www.zuredex.com"),
   title: "Zuredex — Operational Intelligence Platform",
   description: "AI-powered reconciliation and revenue visibility for surgical device distributors. Built in Indiana.",
   openGraph: {
     title: "Zuredex — Operational Intelligence Platform",
     description: "AI-powered reconciliation and revenue visibility for surgical device distributors.",
-    url: "https://zuredex.com",
+    url: "https://www.zuredex.com",
     type: "website",
-    images: [{ url: "https://zuredex.com/og-image.png" }],
+    images: [{ url: "/og-image.png" }],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["https://zuredex.com/og-image.png"],
+    images: ["/og-image.png"],
   },
   icons: {
     shortcut: "/favicon.ico",
     icon: [
       { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   manifest: "/site.webmanifest",
   appleWebApp: { title: "Zuredex" },
   alternates: {
-    canonical: "https://www.zuredex.com",
+    canonical: "/",
   },
 };
 
@@ -50,15 +61,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
     >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -66,21 +71,15 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
               "name": "Zuredex",
-              "url": "https://zuredex.com",
-              "logo": "https://zuredex.com/og-image.png",
-              "description": "AI-powered reconciliation and revenue visibility for surgical device distributors. Zuredex automates surgical case sheet reconciliation, purchase order matching, and unresolved revenue detection.",
+              "url": "https://www.zuredex.com",
+              "logo": "https://www.zuredex.com/branding/zuredex-symbol.svg",
+              "description": "AI reads it, a person confirms every case in Manual Review. Zuredex connects case sheets, PO matching, and commission calculations for medical device distributors.",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD",
-                "description": "Pilot program available"
-              },
               "creator": {
                 "@type": "Organization",
                 "name": "Zuredex LLC",
-                "url": "https://zuredex.com",
+                "url": "https://www.zuredex.com",
                 "email": "analytics@zuredex.com",
                 "address": {
                   "@type": "PostalAddress",

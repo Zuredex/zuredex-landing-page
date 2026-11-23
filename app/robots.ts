@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://zuredex.com/sitemap.xml',
+    sitemap: 'https://www.zuredex.com/sitemap.xml',
   }
 }
