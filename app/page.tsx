@@ -46,7 +46,7 @@ export default function Page() {
               fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7',
               letterSpacing: 3, textTransform: 'uppercase',
               borderLeft: '2px solid #3BA7C7', paddingLeft: 12, marginBottom: 24,
-            }}>RECONCILIATION · TERRITORY · COMMISSIONS</div>
+            }}>RECONCILE • OPERATE • UNDERSTAND</div>
 
             <h1
               className="hero-headline"
