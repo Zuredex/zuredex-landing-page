@@ -6,7 +6,9 @@ import mobileCases from "@/public/cases-mobile.png";
 import SiteStyles from "@/components/SiteStyles";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
-import { analyticsSampleMetrics, heroSampleMetrics, sampleCaption } from "@/lib/sample-data";
+import ShowcaseTilt from "@/components/ShowcaseTilt";
+import { analyticsSampleMetrics, heroSampleMetrics, sampleCaption, sampleMatchedPO } from "@/lib/sample-data";
+import "./showcase.css";
 
 export default function Page() {
   return (
@@ -17,15 +19,7 @@ export default function Page() {
 
       {/* ── SECTION 2: HERO ───────────────────────────────────── */}
       <section className="landing-hero">
-        <div
-          className="hero-grid"
-          style={{
-            position: 'relative', zIndex: 1,
-            display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: 80,
-            alignItems: 'center', padding: '120px 80px 80px',
-            maxWidth: 1400, margin: '0 auto',
-          }}
-        >
+        <div className="hero-grid">
           {/* LEFT COLUMN */}
           <div>
             <div style={{
@@ -84,27 +78,58 @@ export default function Page() {
           </div>
 
           {/* Static fictional values are rendered on the server. */}
-          <div className="dashboard-preview" role="group" aria-label="Sample workflow preview">
-            <div className="preview-heading">Zuredex · workflow preview</div>
-            <div className="preview-metrics">
-              {heroSampleMetrics.map(({ label, value }) => (
-                <div className="preview-card" key={label} role="group" aria-label={`${sampleCaption}: ${label}, ${value}`}>
-                  <div>{label}</div>
-                  <span>{value}</span>
-                  <small className="sample-label">{sampleCaption}</small>
-                </div>
-              ))}
+          <ShowcaseTilt>
+            <div className="dashboard-preview" role="group" aria-label="Executive Command Center, sample workflow preview">
+              <div className="preview-heading">
+                <span className="preview-brand">ZUREDEX</span>
+                Executive Command Center
+              </div>
+              <div className="preview-metrics">
+                {heroSampleMetrics.map(({ label, value }) => (
+                  <div className="preview-card" key={label} role="group" aria-label={`${sampleCaption}: ${label}, ${value}`}>
+                    <div>{label}</div>
+                    <span>{value}</span>
+                    <small className="sample-label">{sampleCaption}</small>
+                  </div>
+                ))}
+              </div>
+              <dl className="preview-statuses">
+                <div><dt>Case sheet</dt><dd>Manual Review</dd></div>
+                <div><dt>Purchase order</dt><dd>Waiting for PO</dd></div>
+                <div><dt>Revenue</dt><dd>Confirmed after review and matching</dd></div>
+              </dl>
             </div>
-            <p className="preview-note">AI reads it, a person confirms every case in Manual Review.</p>
-            <dl className="preview-statuses">
-              <div><dt>Case sheet</dt><dd>Manual Review</dd></div>
-              <div><dt>Purchase order</dt><dd>Waiting for PO</dd></div>
-              <div><dt>Revenue</dt><dd>Confirmed after review and matching</dd></div>
-            </dl>
-            <p className="preview-caption">Sample workflow view</p>
-          </div>
+            <div className="upload-phone" role="group" aria-label="Sample mobile case sheet upload">
+              <div className="phone-screen">
+                <span className="phone-brand">ZUREDEX</span>
+                <strong>Upload case sheet</strong>
+                <span className="phone-upload">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M3 8h4l2-3h6l2 3h4v12H3z" strokeLinejoin="round" /><circle cx="12" cy="13.5" r="3.3" />
+                  </svg>
+                  Take a photo
+                </span>
+                <span className="phone-file">Choose a file</span>
+                <span className="passkey-indicator">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                    <path d="M3 11a9 9 0 0 1 18 0m-15 2v-2a6 6 0 0 1 12 0c0 4-.5 7-2 10M4 18c1-1.5 2-3 2-5m3 7c2-2.5 3-5.5 3-9m-4 6c1-2 1-3.5 1-6a3 3 0 0 1 6 0c0 5-1 8-2.5 11" />
+                  </svg>
+                  Signed in with passkey
+                </span>
+              </div>
+            </div>
+            <p className="match-pill">
+              <span className="sr-only">{sampleCaption}. </span><span className="match-check" aria-hidden="true">✓</span> PO #{sampleMatchedPO.number} auto-matched — {sampleMatchedPO.amount}
+            </p>
+          </ShowcaseTilt>
         </div>
       </section>
+
+      <ul className="hero-trust" aria-label="Platform and company details">
+        {["BUILT ON GOOGLE CLOUD", "PASSKEY & BIOMETRIC SIGN-IN", "ROLE-BASED ACCESS CONTROLS", "BUILT IN INDIANA"].map((item, index) => (
+          <li key={item}>{index > 0 && <span aria-hidden="true">•</span>}{item}</li>
+        ))}
+      </ul>
 
       {/* ── SECTION 3: CAPABILITY PILLARS ─────────────────────── */}
       <section className="section-pad" style={{ padding: '86px 80px', position: 'relative', overflow: 'hidden' }}>
@@ -143,30 +168,6 @@ export default function Page() {
             Built for how medical device sales actually works — for operations teams and reps alike.
           </div>
         </div>
-      </section>
-
-      {/* ── SECTION 4: TRUST BAR ──────────────────────────────── */}
-      <section
-        className="trust-bar"
-        style={{
-          padding: '20px 80px',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          flexWrap: 'wrap', gap: 24,
-        }}
-      >
-        {[
-          { sym: '⬡', label: 'Secure Cloud Infrastructure' },
-          { sym: '◎', label: 'AI-Assisted Validation' },
-          { sym: '⊞', label: 'Role-Based Access Control' },
-          { sym: '≡', label: 'Workflow Audit Logging' },
-          { sym: '⊘', label: 'Duplicate Prevention' },
-          { sym: '⬡', label: 'Multi-Tenant Architecture' },
-        ].map(item => (
-          <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ color: '#3BA7C7', fontSize: 13, lineHeight: 1 }}>{item.sym}</span>
-            <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A7B4C0', letterSpacing: 1.5, textTransform: 'uppercase' }}>{item.label}</span>
-          </div>
-        ))}
       </section>
 
       {/* ── SECTION 6: WHY NOW ────────────────────────────────── */}

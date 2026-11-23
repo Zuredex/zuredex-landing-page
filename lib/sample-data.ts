@@ -1,6 +1,8 @@
 // Founder-approved fictional display values for the marketing previews.
 export const sampleCaption = "Sample data shown";
 
+export const sampleMatchedPO = { number: "88412", amount: "$14,250" } as const;
+
 export const heroSampleMetrics = [
   { label: "Cases", value: "186" },
   { label: "Confirmed revenue", value: "$412.6K" },
