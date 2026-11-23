@@ -6,7 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
   title: "About — Zuredex",
-  description: "Zuredex is an operational intelligence platform for medical device sales organizations, founded in Indianapolis, Indiana.",
+  description: "Zuredex is an operational intelligence platform for medical device distributors, founded in Indianapolis, Indiana.",
 };
 
 const SECURITY_POINTS = [
@@ -49,8 +49,8 @@ export default function AboutPage() {
             About Zuredex
           </h1>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 17, color: "#A7B4C0", lineHeight: 1.8 }}>
-            Zuredex is an operational intelligence platform purpose-built for medical device sales organizations,
-            surgical distributors, and sales operations teams. Founded in Indianapolis, Indiana, Zuredex was created
+            Zuredex is an operational intelligence platform purpose-built for medical device distributors
+            and their sales operations teams. Founded in Indianapolis, Indiana, Zuredex was created
             to solve a persistent challenge in surgical revenue workflows: the manual friction, slow turnaround, and
             revenue leakage caused by reconciling surgical case sheets against enterprise purchase orders.
           </p>

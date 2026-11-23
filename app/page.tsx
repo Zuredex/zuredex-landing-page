@@ -64,7 +64,7 @@ export default function Page() {
               fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 18, color: '#A7B4C0',
               lineHeight: 1.75, maxWidth: 480, marginTop: 20,
             }}>
-              AI-powered reconciliation and revenue intelligence for medical device sales organizations.
+              AI-powered reconciliation and revenue intelligence for medical device distributors.
             </p>
 
             <p style={{
@@ -322,7 +322,7 @@ export default function Page() {
       <section id="analytics" className="section-pad" style={{ background: '#07182A', borderTop: '1px solid #1C2430', borderBottom: '1px solid #1C2430', padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>OPERATIONAL ANALYTICS</div>
         <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 0, lineHeight: 1.14, maxWidth: 700 }}>
-          Visibility built around how device sales organizations actually work.
+          Visibility built around how medical device distributors actually work.
         </h2>
 
         {/* Callout */}
@@ -477,7 +477,7 @@ export default function Page() {
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 680, margin: '0 auto', textAlign: 'center' }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 20 }}>EXPLORE THE WORKFLOW</div>
           <h2 className="cta-headline" style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 44, color: '#F4F7FA', letterSpacing: -1, lineHeight: 1.12, marginBottom: 20 }}>
-            Operational intelligence for modern medical device organizations.
+            Operational intelligence for modern medical device distributors.
           </h2>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 18, color: '#A7B4C0', lineHeight: 1.75, maxWidth: 520, margin: '0 auto 24px' }}>
             See how Zuredex connects document intake, Manual Review, PO matching, and commission calculations.
