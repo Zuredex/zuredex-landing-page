@@ -36,13 +36,7 @@ export default function Page() {
               borderLeft: '2px solid #3BA7C7', paddingLeft: 12, marginBottom: 24,
             }}>RECONCILE • OPERATE • UNDERSTAND</div>
 
-            <h1
-              className="hero-headline"
-              style={{
-                fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 48,
-                lineHeight: 1.12, letterSpacing: -1, color: '#F4F7FA',
-              }}
-            >
+            <h1 className="hero-headline">
               Every Device.<br />
               Every Case.<br />
               Every <span style={{ color: '#3BA7C7' }}>Dollar.</span>
@@ -110,7 +104,7 @@ export default function Page() {
       <section className="section-pad" style={{ padding: '86px 80px', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>SIX CAPABILITIES</div>
-          <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 16 }}>
+          <h2 className="section-heading" style={{ color: '#F4F7FA', marginBottom: 16 }}>
             More than reconciliation.<br />An operational intelligence platform.
           </h2>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 600, marginBottom: 48, lineHeight: 1.75 }}>
@@ -133,7 +127,7 @@ export default function Page() {
                   fontFamily: "var(--font-dm), monospace", fontSize: 11, color: '#3BA7C7', letterSpacing: 0.5, fontWeight: 500,
                 }}>{item.num}</div>
                 <div>
-                  <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 14, color: '#F4F7FA', marginBottom: 6 }}>{item.title}</div>
+                  <div className="display-type" style={{ fontSize: 14, color: '#F4F7FA', marginBottom: 6 }}>{item.title}</div>
                   <div style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#A7B4C0', lineHeight: 1.75 }}>{item.body}</div>
                 </div>
               </div>
@@ -148,7 +142,7 @@ export default function Page() {
       {/* ── SECTION 6: WHY NOW ────────────────────────────────── */}
       <section id="platform" className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>Product preview</div>
-        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 16, maxWidth: 700, lineHeight: 1.14 }}>
+        <h2 className="section-heading" style={{ color: '#F4F7FA', marginBottom: 16, maxWidth: 700 }}>
           Bring case sheets, POs, and commissions into view.
         </h2>
         <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 560, marginBottom: 60, lineHeight: 1.75 }}>
@@ -174,7 +168,7 @@ export default function Page() {
       {/* ── SECTION 7: RECONCILIATION ENGINE ─────────────────── */}
       <section id="workflow" className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE ENGINE</div>
-        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 16, lineHeight: 1.14 }}>
+        <h2 className="section-heading" style={{ color: '#F4F7FA', marginBottom: 16 }}>
           From fragmented documents to<br />operational intelligence.
         </h2>
         <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 520, marginBottom: 64, lineHeight: 1.75 }}>
@@ -188,7 +182,7 @@ export default function Page() {
       {showRevenueIntelligenceScreenshot && (
       <section className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE WORKFLOW</div>
-        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', marginBottom: 16, lineHeight: 1.14 }}>See Zuredex in action.</h2>
+        <h2 className="section-heading" style={{ color: '#F4F7FA', marginBottom: 16 }}>See Zuredex in action.</h2>
         <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', marginBottom: 48, lineHeight: 1.75, maxWidth: 600 }}>
           AI reads it, a person confirms every case in Manual Review.
           Match reviewed case sheets to purchase orders and see confirmed revenue alongside cases awaiting a PO.
@@ -217,7 +211,7 @@ export default function Page() {
       {/* ── SECTION 9: OPERATIONAL VISIBILITY ────────────────── */}
       <section id="analytics" className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>OPERATIONAL ANALYTICS</div>
-        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 0, lineHeight: 1.14, maxWidth: 700 }}>
+        <h2 className="section-heading" style={{ color: '#F4F7FA', marginBottom: 0, maxWidth: 700 }}>
           Visibility built around how medical device distributors actually work.
         </h2>
 
@@ -228,7 +222,7 @@ export default function Page() {
           border: '1px solid #1C2430', borderLeft: '3px solid #3BA7C7',
           borderRadius: 4, padding: '28px 36px',
         }}>
-          <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: '#F4F7FA', lineHeight: 1.5 }}>
+          <div className="display-type" style={{ fontSize: 20, color: '#F4F7FA', lineHeight: 1.5 }}>
             Generic CRMs track relationships.<br />
             Zuredex tracks actual surgical revenue.
           </div>
@@ -264,7 +258,7 @@ export default function Page() {
       {/* ── SECTION 10: REAL PRODUCT PROOF ───────────────────── */}
       <section className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>PRODUCT VIEWS</div>
-        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 48, maxWidth: 700 }}>
+        <h2 className="section-heading" style={{ color: '#F4F7FA', marginBottom: 48, maxWidth: 700 }}>
           Built for the office and the field.
         </h2>
         <div
@@ -303,7 +297,7 @@ export default function Page() {
       {/* ── SECTION 11: SECURITY ──────────────────────────────── */}
       <section id="security" className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>SECURITY &amp; GOVERNANCE</div>
-        <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', lineHeight: 1.14, marginBottom: 16 }}>
+        <h2 className="section-heading" style={{ color: '#F4F7FA', marginBottom: 16 }}>
           Designed for secure<br />operational workflows.
         </h2>
         <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 14, color: '#A1B8C9', fontStyle: 'italic', maxWidth: 600, marginBottom: 48, lineHeight: 1.75 }}>
@@ -328,7 +322,7 @@ export default function Page() {
                 fontFamily: "var(--font-dm), monospace", fontSize: 7, color: '#3BA7C7', letterSpacing: 0.5, fontWeight: 500,
               }}>{item.icon}</div>
               <div>
-                <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 14, color: '#F4F7FA', marginBottom: 6 }}>{item.title}</div>
+                <div className="display-type" style={{ fontSize: 14, color: '#F4F7FA', marginBottom: 6 }}>{item.title}</div>
                 <div style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#A7B4C0', lineHeight: 1.75 }}>{item.body}</div>
               </div>
             </div>
@@ -349,7 +343,7 @@ export default function Page() {
 
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 680, margin: '0 auto', textAlign: 'center' }}>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 20 }}>EXPLORE THE WORKFLOW</div>
-          <h2 className="cta-headline" style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 44, color: '#F4F7FA', letterSpacing: -1, lineHeight: 1.12, marginBottom: 20 }}>
+          <h2 className="cta-headline" style={{ color: '#F4F7FA', marginBottom: 20 }}>
             Operational intelligence for modern medical device distributors.
           </h2>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 18, color: '#A7B4C0', lineHeight: 1.75, maxWidth: 520, margin: '0 auto 24px' }}>
