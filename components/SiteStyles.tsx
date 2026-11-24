@@ -86,7 +86,6 @@ export default function SiteStyles() {
       .nav-mobile { display: none; }
       .sample-metric { min-width: 0; }
       .sample-value { overflow-wrap: anywhere; }
-      .sample-label { display: block; margin-top: 8px; color: #A1B8C9; font: 12px/1.5 var(--font-plex), sans-serif; }
       @media (max-width: 960px) {
         .site-nav { padding: 4px 16px; gap: 8px; }
         .nav-desktop { display: none; }

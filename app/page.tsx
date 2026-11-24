@@ -6,8 +6,9 @@ import mobileCases from "@/public/cases-mobile.png";
 import SiteStyles from "@/components/SiteStyles";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import SampleDashboard from "@/components/SampleDashboard";
 import ShowcaseTilt from "@/components/ShowcaseTilt";
-import { analyticsSampleMetrics, heroSampleMetrics, sampleCaption, sampleMatchedPO } from "@/lib/sample-data";
+import { analyticsSampleMetrics, sampleDashboard, sampleCaption, sampleMatchedPO } from "@/lib/sample-data";
 import "./showcase.css";
 
 export default function Page() {
@@ -73,55 +74,39 @@ export default function Page() {
             <div style={{
               fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', marginTop: 20,
             }}>
-              Built in Indiana&nbsp;&middot;&nbsp;Medical device sales operations
+              Based in Indianapolis, IN · Built for medical device distributors
             </div>
           </div>
 
           {/* Static fictional values are rendered on the server. */}
-          <ShowcaseTilt>
-            <div className="dashboard-preview" role="group" aria-label="Executive Command Center, sample workflow preview">
-              <div className="preview-heading">
-                <span className="preview-brand">ZUREDEX</span>
-                Executive Command Center
+          <figure className="hero-sample">
+            <ShowcaseTilt>
+              <SampleDashboard />
+              <div className="upload-phone" role="group" aria-label="Sample mobile case sheet upload">
+                <div className="phone-screen">
+                  <span className="phone-brand">ZUREDEX</span>
+                  <strong>Upload case sheet</strong>
+                  <span className="phone-upload">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M3 8h4l2-3h6l2 3h4v12H3z" strokeLinejoin="round" /><circle cx="12" cy="13.5" r="3.3" />
+                    </svg>
+                    Take a photo
+                  </span>
+                  <span className="phone-file">Choose a file</span>
+                  <span className="passkey-indicator">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                      <path d="M3 11a9 9 0 0 1 18 0m-15 2v-2a6 6 0 0 1 12 0c0 4-.5 7-2 10M4 18c1-1.5 2-3 2-5m3 7c2-2.5 3-5.5 3-9m-4 6c1-2 1-3.5 1-6a3 3 0 0 1 6 0c0 5-1 8-2.5 11" />
+                    </svg>
+                    Signed in with passkey
+                  </span>
+                </div>
               </div>
-              <div className="preview-metrics">
-                {heroSampleMetrics.map(({ label, value }) => (
-                  <div className="preview-card" key={label} role="group" aria-label={`${sampleCaption}: ${label}, ${value}`}>
-                    <div>{label}</div>
-                    <span>{value}</span>
-                    <small className="sample-label">{sampleCaption}</small>
-                  </div>
-                ))}
-              </div>
-              <dl className="preview-statuses">
-                <div><dt>Case sheet</dt><dd>Manual Review</dd></div>
-                <div><dt>Purchase order</dt><dd>Waiting for PO</dd></div>
-                <div><dt>Revenue</dt><dd>Confirmed after review and matching</dd></div>
-              </dl>
-            </div>
-            <div className="upload-phone" role="group" aria-label="Sample mobile case sheet upload">
-              <div className="phone-screen">
-                <span className="phone-brand">ZUREDEX</span>
-                <strong>Upload case sheet</strong>
-                <span className="phone-upload">
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M3 8h4l2-3h6l2 3h4v12H3z" strokeLinejoin="round" /><circle cx="12" cy="13.5" r="3.3" />
-                  </svg>
-                  Take a photo
-                </span>
-                <span className="phone-file">Choose a file</span>
-                <span className="passkey-indicator">
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                    <path d="M3 11a9 9 0 0 1 18 0m-15 2v-2a6 6 0 0 1 12 0c0 4-.5 7-2 10M4 18c1-1.5 2-3 2-5m3 7c2-2.5 3-5.5 3-9m-4 6c1-2 1-3.5 1-6a3 3 0 0 1 6 0c0 5-1 8-2.5 11" />
-                  </svg>
-                  Signed in with passkey
-                </span>
-              </div>
-            </div>
-            <p className="match-pill">
-              <span className="sr-only">{sampleCaption}. </span><span className="match-check" aria-hidden="true">✓</span> PO #{sampleMatchedPO.number} auto-matched — {sampleMatchedPO.amount}
-            </p>
-          </ShowcaseTilt>
+              <p className="match-pill">
+                <span className="match-check" aria-hidden="true">✓</span> PO #{sampleMatchedPO.number} auto-matched — {sampleMatchedPO.amount}
+              </p>
+            </ShowcaseTilt>
+            <figcaption className="sample-caption">{sampleCaption}</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -299,7 +284,7 @@ export default function Page() {
         </div>
 
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', textAlign: 'center', marginTop: 16 }}>
-          {sampleCaption}
+          Sample data shown
         </div>
       </section>
 
@@ -344,17 +329,13 @@ export default function Page() {
           </div>
 
           {/* Rep bars + stat grid */}
-          <div>
+          <figure>
             <div style={{ marginBottom: 32 }}>
-              {[
-                { name: 'Alex Rivera', color: '#10B981' },
-                { name: 'Jordan Kim', color: '#F59E0B' },
-                { name: 'Casey Nguyen', color: '#10B981' },
-              ].map(rep => (
+              {sampleDashboard.reps.map(rep => (
                 <div key={rep.name} style={{ marginBottom: 22 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 7 }}>
                     <span style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#F4F7FA' }}>{rep.name}</span>
-                    <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 11, color: rep.color }}>—</span>
+                    <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 11, color: 'var(--t2)' }}>—</span>
                   </div>
                 </div>
               ))}
@@ -362,14 +343,14 @@ export default function Page() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 14 }}>
               {analyticsSampleMetrics.map(stat => (
-                <div key={stat.label} className="glass-card sample-metric" role="group" aria-label={`${sampleCaption}: ${stat.label}, ${stat.value}`} style={{ padding: '16px 18px' }}>
+                <div key={stat.label} className="glass-card sample-metric" style={{ padding: '16px 18px' }}>
                   <div className="sample-value" style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: stat.color }}>{stat.value}</div>
                   <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 1, marginTop: 4, textTransform: 'uppercase' }}>{stat.label}</div>
-                  <small className="sample-label">{sampleCaption}</small>
                 </div>
               ))}
             </div>
-          </div>
+            <figcaption className="sample-caption">{sampleCaption}</figcaption>
+          </figure>
         </div>
       </section>
 
