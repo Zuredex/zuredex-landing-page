@@ -6,6 +6,7 @@ import mobileCases from "@/public/cases-mobile.png";
 import SiteStyles from "@/components/SiteStyles";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import SampleUploadPhone from "@/components/SampleUploadPhone";
 import SampleDashboard from "@/components/SampleDashboard";
 import ShowcaseTilt from "@/components/ShowcaseTilt";
 import { analyticsSampleMetrics, sampleDashboard, sampleCaption, sampleMatchedPO } from "@/lib/sample-data";
@@ -82,25 +83,7 @@ export default function Page() {
           <figure className="hero-sample">
             <ShowcaseTilt>
               <SampleDashboard />
-              <div className="upload-phone" role="group" aria-label="Sample mobile case sheet upload">
-                <div className="phone-screen">
-                  <span className="phone-brand">ZUREDEX</span>
-                  <strong>Upload case sheet</strong>
-                  <span className="phone-upload">
-                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M3 8h4l2-3h6l2 3h4v12H3z" strokeLinejoin="round" /><circle cx="12" cy="13.5" r="3.3" />
-                    </svg>
-                    Take a photo
-                  </span>
-                  <span className="phone-file">Choose a file</span>
-                  <span className="passkey-indicator">
-                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                      <path d="M3 11a9 9 0 0 1 18 0m-15 2v-2a6 6 0 0 1 12 0c0 4-.5 7-2 10M4 18c1-1.5 2-3 2-5m3 7c2-2.5 3-5.5 3-9m-4 6c1-2 1-3.5 1-6a3 3 0 0 1 6 0c0 5-1 8-2.5 11" />
-                    </svg>
-                    Signed in with passkey
-                  </span>
-                </div>
-              </div>
+              <SampleUploadPhone />
               <p className="match-pill">
                 <span className="match-check" aria-hidden="true">✓</span> PO #{sampleMatchedPO.number} auto-matched — {sampleMatchedPO.amount}
               </p>
@@ -111,7 +94,7 @@ export default function Page() {
       </section>
 
       <ul className="hero-trust" aria-label="Platform and company details">
-        {["BUILT ON GOOGLE CLOUD", "PASSKEY & BIOMETRIC SIGN-IN", "ROLE-BASED ACCESS CONTROLS", "BUILT IN INDIANA"].map((item, index) => (
+        {["BUILT ON GOOGLE CLOUD", "PASSKEY & BIOMETRIC SIGN-IN", "ROLE-BASED ACCESS CONTROLS", "BUILT IN INDIANAPOLIS"].map((item, index) => (
           <li key={item}>{index > 0 && <span aria-hidden="true">•</span>}{item}</li>
         ))}
       </ul>
