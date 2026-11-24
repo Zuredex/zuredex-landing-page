@@ -27,8 +27,21 @@ export const sampleDashboard = {
 } as const;
 
 export const analyticsSampleMetrics = [
-  { label: "Total Reconciled", value: "$129.8K", color: "#10B981" },
-  { label: "At Risk", value: "$19.3K", color: "#FF4D6A" },
-  { label: "Avg Match Time", value: "1.4d", color: "#F59E0B" },
-  { label: "Match Rate", value: "80.9%", color: "#3BA7C7" },
+  { label: "Total Reconciled", prefix: "$", unit: "K", color: "#10B981", series: [93, 99, 101, 112, 114, 121, 129.8] },
+  { label: "At Risk", prefix: "$", unit: "K", color: "#FF7088", series: [25, 23, 24, 21, 22, 20, 19.3] },
+  { label: "Avg Match Time", prefix: "", unit: "d", color: "#F59E0B", series: [2.2, 2, 2.1, 1.8, 1.7, 1.6, 1.4] },
+  { label: "Match Rate", prefix: "", unit: "%", color: "#58C4DE", series: [69, 73, 72, 75, 78, 79, 80.9] },
+] as const;
+
+export const previewFacilities = [
+  { name: "Aven Reach Center", initials: "A.K.", volume: 46, overdue: true, x: 182, y: 72 },
+  { name: "Kelveth Ridge Clinic", initials: "I.V.", volume: 24, overdue: false, x: 275, y: 108 },
+  { name: "Selvar Vale Center", initials: "T.O.", volume: 36, overdue: true, x: 198, y: 165 },
+  { name: "Orvessa Crossing", initials: "P.L.", volume: 16, overdue: false, x: 279, y: 209 },
+] as const;
+
+export const intelligenceSamples = [
+  { question: "Which facilities have open POs over 30 days?", answer: "Aven Reach Center and Selvar Vale Center have open purchase orders older than 30 days." },
+  { question: "Why did Q4 revenue shift vs. Q3?", answer: "More case sheets at Aven Reach Center matched their purchase orders in Q4. Those matches moved revenue from pending to confirmed." },
+  { question: "Top manufacturers by revenue this quarter", answer: "Velqorin Ortho leads by confirmed revenue this quarter, followed by Kelmora Devices and Orveth Medical." },
 ] as const;

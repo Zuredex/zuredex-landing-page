@@ -8,9 +8,13 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import SampleUploadPhone from "@/components/SampleUploadPhone";
 import SampleDashboard from "@/components/SampleDashboard";
+import ProductPreview from "@/components/ProductPreview";
+import WorkflowFlow from "@/components/WorkflowFlow";
+import AnimatedMetrics from "@/components/AnimatedMetrics";
 import ShowcaseTilt from "@/components/ShowcaseTilt";
-import { analyticsSampleMetrics, sampleDashboard, sampleCaption, sampleMatchedPO } from "@/lib/sample-data";
+import { sampleCaption, sampleMatchedPO } from "@/lib/sample-data";
 import "./showcase.css";
+import "./product-preview.css";
 
 export default function Page() {
   return (
@@ -141,13 +145,14 @@ export default function Page() {
 
       {/* ── SECTION 6: WHY NOW ────────────────────────────────── */}
       <section id="platform" className="section-pad" style={{ padding: '86px 80px' }}>
-        <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE DAILY WORKFLOW</div>
+        <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>Product preview</div>
         <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', letterSpacing: -0.5, marginBottom: 16, maxWidth: 700, lineHeight: 1.14 }}>
           Bring case sheets, POs, and commissions into view.
         </h2>
         <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 560, marginBottom: 60, lineHeight: 1.75 }}>
           Keep document review and revenue visibility connected to the work your team does every day.
         </p>
+        <ProductPreview />
         <div className="why-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, maxWidth: 900, margin: '0 auto' }}>
           {[
             { num: '01', title: 'Case sheets read by hand', body: 'AI extracts fields and line items from typed and handwritten case sheets for human review.' },
@@ -174,74 +179,7 @@ export default function Page() {
           AI reads it, a person confirms every case in Manual Review. Case sheets and POs stay connected through matching and price-mismatch review.
         </p>
 
-        <div className="recon-grid" style={{ maxWidth: 1000, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 80px 1fr 80px 1fr', alignItems: 'start' }}>
-          {/* Inputs */}
-          <div>
-            <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 2, marginBottom: 20, textTransform: 'uppercase' }}>DOCUMENT INPUTS</div>
-            {['Case Sheets','Purchase Orders','Document Uploads','Phone Camera'].map(item => (
-              <div key={item} style={{
-                background: '#151B22', border: '1px solid #1C2430', borderRadius: 4,
-                padding: '10px 14px', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10,
-                boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
-              }}>
-                <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#3BA7C7', flexShrink: 0 }} />
-                <span style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#A7B4C0' }}>{item}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Arrow 1 */}
-          <div className="recon-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 60 }}>
-            <svg width="100%" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="0" y1="12" x2="72" y2="12" stroke="#3BA7C7" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 8" strokeLinecap="round"  />
-              <polygon points="68,7 80,12 68,17" fill="#3BA7C7" fillOpacity="0.6" />
-            </svg>
-          </div>
-
-          {/* Engine */}
-          <div style={{
-            background: 'linear-gradient(135deg, #151B22, #0F141A)',
-            border: '1px solid #1C2430', borderRadius: 8, padding: 24,
-            boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
-          }}>
-            <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 8, color: '#3BA7C7', letterSpacing: 2, marginBottom: 16, textTransform: 'uppercase' }}>AI EXTRACTION & HUMAN REVIEW</div>
-            {['AI-Extracted Fields','Manual Review of Every Case','Human Confirmation','PO Matching','Price-Mismatch Detection','Duplicate Suggestions'].map(cap => (
-              <div key={cap} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-                <div style={{ width: 4, height: 4, borderRadius: '50%', background: '#3BA7C7', flexShrink: 0 }} />
-                <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A7B4C0' }}>{cap}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Arrow 2 */}
-          <div className="recon-arrow" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 60 }}>
-            <svg width="100%" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="0" y1="12" x2="72" y2="12" stroke="#3BA7C7" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 8" strokeLinecap="round"  />
-              <polygon points="68,7 80,12 68,17" fill="#3BA7C7" fillOpacity="0.6" />
-            </svg>
-          </div>
-
-          {/* Outputs */}
-          <div>
-            <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 2, marginBottom: 20, textTransform: 'uppercase' }}>OPERATIONAL OUTPUTS</div>
-            {[
-              { label: 'Confirmed Revenue', color: '#10B981' },
-              { label: 'Unresolved Alerts', color: '#FF4D6A' },
-              { label: 'Executive Analytics', color: '#8B5CF6' },
-              { label: 'Review Queues', color: '#FF6B35' },
-              { label: 'Workflow Reports', color: '#3BA7C7' },
-            ].map(item => (
-              <div key={item.label} style={{
-                background: '#151B22', border: '1px solid #1C2430', borderRadius: 4,
-                padding: '10px 14px', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10,
-                boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
-              }}>
-                <div style={{ width: 6, height: 6, borderRadius: '50%', background: item.color, flexShrink: 0 }} />
-                <span style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#A7B4C0' }}>{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <WorkflowFlow />
       </section>
 
       {/* ── SECTION 8: WORKFLOW WALKTHROUGH ──────────────────── */}
@@ -312,28 +250,9 @@ export default function Page() {
             ))}
           </div>
 
-          {/* Rep bars + stat grid */}
           <figure>
-            <div style={{ marginBottom: 32 }}>
-              {sampleDashboard.reps.map(rep => (
-                <div key={rep.name} style={{ marginBottom: 22 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 7 }}>
-                    <span style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#F4F7FA' }}>{rep.name}</span>
-                    <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 11, color: 'var(--t2)' }}>—</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 14 }}>
-              {analyticsSampleMetrics.map(stat => (
-                <div key={stat.label} className="glass-card sample-metric" style={{ padding: '16px 18px' }}>
-                  <div className="sample-value" style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: stat.color }}>{stat.value}</div>
-                  <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 1, marginTop: 4, textTransform: 'uppercase' }}>{stat.label}</div>
-                </div>
-              ))}
-            </div>
-            <figcaption className="sample-caption">{sampleCaption}</figcaption>
+            <AnimatedMetrics />
+            <figcaption className="sample-caption">Sample data</figcaption>
           </figure>
         </div>
       </section>
