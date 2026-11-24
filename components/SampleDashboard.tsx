@@ -1,15 +1,18 @@
 import { sampleDashboard as data } from "@/lib/sample-data";
+import { SampleAppNav } from "./SampleUploadPhone";
 
-export default function SampleDashboard() {
+export default function SampleDashboard({ mobile = false }: { mobile?: boolean }) {
+  const fillId = mobile ? "mobile-revenue-fill" : "revenue-fill";
   const history = data.revenueHistory;
   const points = history.map((value, i) =>
     `${2 + 196 * i / (history.length - 1)},${47 - 44 * value / history[history.length - 1]}`
   ).join(" ");
 
   return (
-    <div className="dashboard-preview" role="img" aria-label="Sample Zuredex dashboard with fictional data">
+    <div className={mobile ? "mobile-dashboard" : "dashboard-preview"} role="img"
+      aria-label={mobile ? "Sample Zuredex mobile dashboard with fictional data" : "Sample Zuredex dashboard with fictional data"}>
       <div className="dashboard-screen" aria-hidden="true">
-        <div className="dash-header"><span className="dash-symbol" />Dashboard</div>
+        {!mobile && <div className="dash-header"><span className="dash-symbol" />Dashboard</div>}
         <div className="dash-body">
           <div className="dash-card dash-revenue">
             <div>
@@ -19,13 +22,13 @@ export default function SampleDashboard() {
             </div>
             <svg className="dash-spark" viewBox="0 0 200 50" preserveAspectRatio="none">
               <defs>
-                <linearGradient id="revenue-fill" x2="0" y2="1">
+                <linearGradient id={fillId} x2="0" y2="1">
                   <stop stopColor="currentColor" stopOpacity=".32" />
                   <stop offset="1" stopColor="currentColor" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <path d="M0 16h200M0 33h200M0 49h200" stroke="currentColor" opacity=".13" strokeDasharray="3 4" />
-              <polygon points={`2,50 ${points} 198,50`} fill="url(#revenue-fill)" />
+              <polygon points={`2,50 ${points} 198,50`} fill={`url(#${fillId})`} />
               <polyline points={points} fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
               <circle cx="198" cy="3" r="2" fill="currentColor" />
             </svg>
@@ -58,21 +61,24 @@ export default function SampleDashboard() {
               </div>
             </div>
           </div>
-          <div className="dash-alert">
-            <span><strong>Revenue alert:</strong> {data.unmatchedCases} unmatched cases · {data.openRevenue} open</span>
-            <span className="dash-view">View Cases →</span>
-          </div>
-          <div className="dash-pipeline">
-            <div className="dash-label">Rep Performance · Pipeline</div>
-            <div className="dash-reps">{data.reps.map(rep => (
-              <div className="dash-card" key={rep.name}>
-                <strong>{rep.name}</strong>
-                <div className="dash-territory"><span>{rep.territory}</span><span>{rep.percent}%</span></div>
-                <div className="dash-track"><span style={{width: `${rep.percent}%`}} /></div>
-              </div>
-            ))}</div>
-          </div>
+          {!mobile && <>
+            <div className="dash-alert">
+              <span><strong>Revenue alert:</strong> {data.unmatchedCases} unmatched cases · {data.openRevenue} open</span>
+              <span className="dash-view">View Cases →</span>
+            </div>
+            <div className="dash-pipeline">
+              <div className="dash-label">Rep Performance · Pipeline</div>
+              <div className="dash-reps">{data.reps.map(rep => (
+                <div className="dash-card" key={rep.name}>
+                  <strong>{rep.name}</strong>
+                  <div className="dash-territory"><span>{rep.territory}</span><span>{rep.percent}%</span></div>
+                  <div className="dash-track"><span style={{width: `${rep.percent}%`}} /></div>
+                </div>
+              ))}</div>
+            </div>
+          </>}
         </div>
+        {mobile && <SampleAppNav />}
       </div>
     </div>
   );

@@ -83,6 +83,7 @@ export default function Page() {
           <figure className="hero-sample">
             <ShowcaseTilt>
               <SampleDashboard />
+              <SampleDashboard mobile />
               <SampleUploadPhone />
               <p className="match-pill">
                 <span className="match-check" aria-hidden="true">✓</span> PO #{sampleMatchedPO.number} auto-matched — {sampleMatchedPO.amount}

@@ -56,5 +56,5 @@ export default function ShowcaseTilt({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  return <div ref={ref} className="showcase"><div className="showcase-scene">{children}</div></div>;
+  return <div ref={ref} className="showcase">{children}</div>;
 }

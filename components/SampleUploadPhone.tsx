@@ -16,6 +16,18 @@ function PhoneIcon({ path }: { path: string }) {
   );
 }
 
+export function SampleAppNav() {
+  return (
+    <div className="phone-tabs">
+      {tabs.map(tab => (
+        <span key={tab.label} className={tab.label === "Upload" ? "phone-active-tab" : undefined}>
+          <PhoneIcon path={tab.path} />
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export default function SampleUploadPhone() {
   const initials = sampleDashboard.reps[0].name.split(" ").map(part => part[0]).join("");
   return (
@@ -32,13 +44,7 @@ export default function SampleUploadPhone() {
             <span className="phone-photo">Take Photo</span>
           </div>
         </div>
-        <div className="phone-tabs">
-          {tabs.map(tab => (
-            <span key={tab.label} className={tab.label === "Upload" ? "phone-active-tab" : undefined}>
-              <PhoneIcon path={tab.path} />
-            </span>
-          ))}
-        </div>
+        <SampleAppNav />
       </div>
     </div>
   );
