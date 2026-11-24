@@ -85,7 +85,7 @@ export default function PrivacyPage() {
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             LEGAL
           </div>
-          <h1 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 40, color: "#F4F7FA", letterSpacing: -0.5, lineHeight: 1.14, marginBottom: 12 }}>
+          <h1 style={{ fontSize: 40, color: "#F4F7FA", lineHeight: 1.14, marginBottom: 12 }}>
             Privacy Policy
           </h1>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 12, color: "#A1B8C9", marginBottom: 48 }}>
@@ -94,7 +94,7 @@ export default function PrivacyPage() {
 
           {SECTIONS.map((s) => (
             <div key={s.heading} style={{ marginBottom: 36 }}>
-              <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 18, color: "#F4F7FA", marginBottom: 10 }}>
+              <h2 style={{ fontSize: 18, color: "#F4F7FA", marginBottom: 10 }}>
                 {s.heading}
               </h2>
               <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 15, color: "#A7B4C0", lineHeight: 1.8 }}>

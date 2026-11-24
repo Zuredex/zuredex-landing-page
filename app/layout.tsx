@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Syne, IBM_Plex_Sans, DM_Mono } from "next/font/google";
+import { Inter_Tight, Syne, IBM_Plex_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Syne({
+const heading = Inter_Tight({
+  variable: "--font-heading",
+  weight: "600",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const brand = Syne({
   variable: "--font-syne",
   weight: "700",
   subsets: ["latin"],
@@ -61,7 +68,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
+      className={`${heading.variable} ${brand.variable} ${body.variable} ${mono.variable} h-full antialiased`}
     >
       <head>
         <script

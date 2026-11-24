@@ -234,7 +234,6 @@ export default function SiteStyles() {
       /* Mobile */
       @media (max-width: 768px) {
         .nav-center { display: none !important; }
-        .hero-headline { font-size: 38px !important; }
         .dashboard-rep-cards { display: none !important; }
         .dashboard-table { display: none !important; }
         .why-grid { grid-template-columns: 1fr 1fr !important; }
@@ -246,7 +245,6 @@ export default function SiteStyles() {
         .section-pad { padding: 60px 24px !important; }
         .tech-strip { padding: 40px 24px !important; }
         .cta-pad { padding: 80px 24px !important; }
-        .cta-headline { font-size: 34px !important; }
         .footer-top { flex-direction: column !important; }
         .footer-links { gap: 24px !important; flex-wrap: wrap !important; }
         .footer-bottom { flex-direction: column !important; gap: 8px !important; }

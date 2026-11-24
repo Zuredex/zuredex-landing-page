@@ -45,7 +45,7 @@ export default function AboutPage() {
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             ABOUT ZUREDEX
           </div>
-          <h1 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 42, color: "#F4F7FA", letterSpacing: -0.5, lineHeight: 1.14, marginBottom: 24 }}>
+          <h1 style={{ fontSize: 42, color: "#F4F7FA", lineHeight: 1.14, marginBottom: 24 }}>
             About Zuredex
           </h1>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontWeight: 300, fontSize: 17, color: "#A7B4C0", lineHeight: 1.8 }}>
@@ -63,7 +63,7 @@ export default function AboutPage() {
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             OUR MISSION
           </div>
-          <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 20 }}>
+          <h2 style={{ fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 20 }}>
             Complete visibility over every device, every case, and every dollar.
           </h2>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8 }}>
@@ -80,7 +80,7 @@ export default function AboutPage() {
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             LEADERSHIP
           </div>
-          <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 32 }}>
+          <h2 style={{ fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 32 }}>
             Founder-led.
           </h2>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8, marginBottom: 32 }}>
@@ -94,7 +94,7 @@ export default function AboutPage() {
               fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 18, color: "#3BA7C7",
             }}>AG</div>
             <div>
-              <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 17, color: "#F4F7FA" }}>Ambar Garcia</div>
+              <div className="display-type" style={{ fontSize: 17, color: "#F4F7FA" }}>Ambar Garcia</div>
               <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 11, color: "#3BA7C7", marginTop: 2, letterSpacing: 0.5 }}>CO-FOUNDER</div>
               <div style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 14, color: "#A7B4C0", marginTop: 8, lineHeight: 1.6 }}>
                 Co-Founder, leading go-to-market and territory operations.
@@ -110,7 +110,7 @@ export default function AboutPage() {
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             ENGINEERING &amp; SECURITY FOCUS
           </div>
-          <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 20, maxWidth: 700 }}>
+          <h2 style={{ fontSize: 28, color: "#F4F7FA", lineHeight: 1.25, marginBottom: 20, maxWidth: 700 }}>
             Product infrastructure
           </h2>
           <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: "#A7B4C0", lineHeight: 1.8, maxWidth: 700, marginBottom: 40 }}>
@@ -126,7 +126,7 @@ export default function AboutPage() {
                   fontFamily: "var(--font-dm), monospace", fontSize: 11, color: "#3BA7C7", letterSpacing: 0.5, fontWeight: 500,
                 }}>{item.num}</div>
                 <div>
-                  <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 14, color: "#F4F7FA", marginBottom: 6 }}>{item.title}</div>
+                  <div className="display-type" style={{ fontSize: 14, color: "#F4F7FA", marginBottom: 6 }}>{item.title}</div>
                   <div style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: "#A7B4C0", lineHeight: 1.75 }}>{item.body}</div>
                 </div>
               </div>
@@ -141,7 +141,7 @@ export default function AboutPage() {
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: "#3BA7C7", letterSpacing: 3, textTransform: "uppercase", marginBottom: 16 }}>
             COMPANY &amp; CONTACT
           </div>
-          <div style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 18, color: "#F4F7FA", marginBottom: 8 }}>
+          <div className="display-type" style={{ fontSize: 18, color: "#F4F7FA", marginBottom: 8 }}>
             Zuredex LLC — Indianapolis, Indiana, USA
           </div>
           <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 13, color: "#A7B4C0" }}>
