@@ -6,7 +6,11 @@ import mobileCases from "@/public/cases-mobile.png";
 import SiteStyles from "@/components/SiteStyles";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
-import { analyticsSampleMetrics, heroSampleMetrics, sampleCaption } from "@/lib/sample-data";
+import SampleUploadPhone from "@/components/SampleUploadPhone";
+import SampleDashboard from "@/components/SampleDashboard";
+import ShowcaseTilt from "@/components/ShowcaseTilt";
+import { analyticsSampleMetrics, sampleDashboard, sampleCaption, sampleMatchedPO } from "@/lib/sample-data";
+import "./showcase.css";
 
 export default function Page() {
   return (
@@ -17,15 +21,7 @@ export default function Page() {
 
       {/* ── SECTION 2: HERO ───────────────────────────────────── */}
       <section className="landing-hero">
-        <div
-          className="hero-grid"
-          style={{
-            position: 'relative', zIndex: 1,
-            display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: 80,
-            alignItems: 'center', padding: '120px 80px 80px',
-            maxWidth: 1400, margin: '0 auto',
-          }}
-        >
+        <div className="hero-grid">
           {/* LEFT COLUMN */}
           <div>
             <div style={{
@@ -79,32 +75,30 @@ export default function Page() {
             <div style={{
               fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', marginTop: 20,
             }}>
-              Built in Indiana&nbsp;&middot;&nbsp;Medical device sales operations
+              Based in Indianapolis, IN · Built for medical device distributors
             </div>
           </div>
 
           {/* Static fictional values are rendered on the server. */}
-          <div className="dashboard-preview" role="group" aria-label="Sample workflow preview">
-            <div className="preview-heading">Zuredex · workflow preview</div>
-            <div className="preview-metrics">
-              {heroSampleMetrics.map(({ label, value }) => (
-                <div className="preview-card" key={label} role="group" aria-label={`${sampleCaption}: ${label}, ${value}`}>
-                  <div>{label}</div>
-                  <span>{value}</span>
-                  <small className="sample-label">{sampleCaption}</small>
-                </div>
-              ))}
-            </div>
-            <p className="preview-note">AI reads it, a person confirms every case in Manual Review.</p>
-            <dl className="preview-statuses">
-              <div><dt>Case sheet</dt><dd>Manual Review</dd></div>
-              <div><dt>Purchase order</dt><dd>Waiting for PO</dd></div>
-              <div><dt>Revenue</dt><dd>Confirmed after review and matching</dd></div>
-            </dl>
-            <p className="preview-caption">Sample workflow view</p>
-          </div>
+          <figure className="hero-sample">
+            <ShowcaseTilt>
+              <SampleDashboard />
+              <SampleDashboard mobile />
+              <SampleUploadPhone />
+              <p className="match-pill">
+                <span className="match-check" aria-hidden="true">✓</span> PO #{sampleMatchedPO.number} auto-matched — {sampleMatchedPO.amount}
+              </p>
+            </ShowcaseTilt>
+            <figcaption className="sample-caption">{sampleCaption}</figcaption>
+          </figure>
         </div>
       </section>
+
+      <ul className="hero-trust" aria-label="Platform and company details">
+        {["BUILT ON GOOGLE CLOUD", "PASSKEY & BIOMETRIC SIGN-IN", "ROLE-BASED ACCESS CONTROLS", "BUILT IN INDIANAPOLIS"].map((item, index) => (
+          <li key={item}>{index > 0 && <span aria-hidden="true">•</span>}{item}</li>
+        ))}
+      </ul>
 
       {/* ── SECTION 3: CAPABILITY PILLARS ─────────────────────── */}
       <section className="section-pad" style={{ padding: '86px 80px', position: 'relative', overflow: 'hidden' }}>
@@ -143,30 +137,6 @@ export default function Page() {
             Built for how medical device sales actually works — for operations teams and reps alike.
           </div>
         </div>
-      </section>
-
-      {/* ── SECTION 4: TRUST BAR ──────────────────────────────── */}
-      <section
-        className="trust-bar"
-        style={{
-          padding: '20px 80px',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          flexWrap: 'wrap', gap: 24,
-        }}
-      >
-        {[
-          { sym: '⬡', label: 'Secure Cloud Infrastructure' },
-          { sym: '◎', label: 'AI-Assisted Validation' },
-          { sym: '⊞', label: 'Role-Based Access Control' },
-          { sym: '≡', label: 'Workflow Audit Logging' },
-          { sym: '⊘', label: 'Duplicate Prevention' },
-          { sym: '⬡', label: 'Multi-Tenant Architecture' },
-        ].map(item => (
-          <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ color: '#3BA7C7', fontSize: 13, lineHeight: 1 }}>{item.sym}</span>
-            <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A7B4C0', letterSpacing: 1.5, textTransform: 'uppercase' }}>{item.label}</span>
-          </div>
-        ))}
       </section>
 
       {/* ── SECTION 6: WHY NOW ────────────────────────────────── */}
@@ -298,7 +268,7 @@ export default function Page() {
         </div>
 
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', textAlign: 'center', marginTop: 16 }}>
-          {sampleCaption}
+          Sample data shown
         </div>
       </section>
 
@@ -343,17 +313,13 @@ export default function Page() {
           </div>
 
           {/* Rep bars + stat grid */}
-          <div>
+          <figure>
             <div style={{ marginBottom: 32 }}>
-              {[
-                { name: 'Alex Rivera', color: '#10B981' },
-                { name: 'Jordan Kim', color: '#F59E0B' },
-                { name: 'Casey Nguyen', color: '#10B981' },
-              ].map(rep => (
+              {sampleDashboard.reps.map(rep => (
                 <div key={rep.name} style={{ marginBottom: 22 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 7 }}>
                     <span style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 13, color: '#F4F7FA' }}>{rep.name}</span>
-                    <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 11, color: rep.color }}>—</span>
+                    <span style={{ fontFamily: "var(--font-dm), monospace", fontSize: 11, color: 'var(--t2)' }}>—</span>
                   </div>
                 </div>
               ))}
@@ -361,14 +327,14 @@ export default function Page() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 14 }}>
               {analyticsSampleMetrics.map(stat => (
-                <div key={stat.label} className="glass-card sample-metric" role="group" aria-label={`${sampleCaption}: ${stat.label}, ${stat.value}`} style={{ padding: '16px 18px' }}>
+                <div key={stat.label} className="glass-card sample-metric" style={{ padding: '16px 18px' }}>
                   <div className="sample-value" style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 20, color: stat.color }}>{stat.value}</div>
                   <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 9, color: '#A1B8C9', letterSpacing: 1, marginTop: 4, textTransform: 'uppercase' }}>{stat.label}</div>
-                  <small className="sample-label">{sampleCaption}</small>
                 </div>
               ))}
             </div>
-          </div>
+            <figcaption className="sample-caption">{sampleCaption}</figcaption>
+          </figure>
         </div>
       </section>
 
