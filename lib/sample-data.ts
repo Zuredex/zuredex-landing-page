@@ -34,10 +34,30 @@ export const analyticsSampleMetrics = [
 ] as const;
 
 export const previewFacilities = [
-  { name: "Aven Reach Center", initials: "A.K.", volume: 46, overdue: true, x: 182, y: 72 },
-  { name: "Kelveth Ridge Clinic", initials: "I.V.", volume: 24, overdue: false, x: 275, y: 108 },
-  { name: "Selvar Vale Center", initials: "T.O.", volume: 36, overdue: true, x: 198, y: 165 },
-  { name: "Orvessa Crossing", initials: "P.L.", volume: 16, overdue: false, x: 279, y: 209 },
+  {
+    name: "Aven Reach Center", city: "Indianapolis", longitude: -86.158, latitude: 39.768, volume: 46, atRisk: 14500,
+    surgeons: [{ name: "Dr. A. Kelveth", amount: 64800 }, { name: "Dr. I. Veyrall", amount: 39300 }, { name: "Dr. T. Orvessa", amount: 25700 }],
+  },
+  {
+    name: "Kelveth Ridge Clinic", city: "Fort Wayne", longitude: -85.140, latitude: 41.080, volume: 24, atRisk: 0,
+    surgeons: [{ name: "Dr. I. Veyrall", amount: 43700 }, { name: "Dr. P. Lanveth", amount: 26800 }],
+  },
+  {
+    name: "Selvar Vale Center", city: "South Bend", longitude: -86.252, latitude: 41.676, volume: 36, atRisk: 4800,
+    surgeons: [{ name: "Dr. T. Orvessa", amount: 53400 }, { name: "Dr. M. Calveth", amount: 42600 }],
+  },
+  {
+    name: "Orvessa Crossing", city: "Evansville", longitude: -87.572, latitude: 37.972, volume: 16, atRisk: 0,
+    surgeons: [{ name: "Dr. P. Lanveth", amount: 24100 }, { name: "Dr. A. Kelveth", amount: 18300 }],
+  },
+  {
+    name: "Quellor Grove Clinic", city: "Lafayette", longitude: -86.875, latitude: 40.417, volume: 28, atRisk: 0,
+    surgeons: [{ name: "Dr. M. Calveth", amount: 38900 }, { name: "Dr. R. Belvora", amount: 31200 }],
+  },
+  {
+    name: "Talveth Hollow Center", city: "Bloomington", longitude: -86.527, latitude: 39.165, volume: 19, atRisk: 0,
+    surgeons: [{ name: "Dr. R. Belvora", amount: 28200 }, { name: "Dr. T. Orvessa", amount: 23700 }],
+  },
 ] as const;
 
 export const intelligenceSamples = [

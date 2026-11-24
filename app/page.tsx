@@ -16,6 +16,8 @@ import { sampleCaption, sampleMatchedPO } from "@/lib/sample-data";
 import "./showcase.css";
 import "./product-preview.css";
 
+const showRevenueIntelligenceScreenshot = false;
+
 export default function Page() {
   return (
     <>
@@ -176,13 +178,14 @@ export default function Page() {
           From fragmented documents to<br />operational intelligence.
         </h2>
         <p style={{ fontFamily: "var(--font-plex), sans-serif", fontSize: 16, color: '#A7B4C0', maxWidth: 520, marginBottom: 64, lineHeight: 1.75 }}>
-          AI reads it, a person confirms every case in Manual Review. Case sheets and POs stay connected through matching and price-mismatch review.
+          AI reads the case sheet, matches it to the hospital PO, and flags price mismatches. A person reviews and confirms every case in Manual Review.
         </p>
 
         <WorkflowFlow />
       </section>
 
       {/* ── SECTION 8: WORKFLOW WALKTHROUGH ──────────────────── */}
+      {showRevenueIntelligenceScreenshot && (
       <section className="section-pad" style={{ padding: '86px 80px' }}>
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#3BA7C7', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 16 }}>THE WORKFLOW</div>
         <h2 style={{ fontFamily: "var(--font-syne), sans-serif", fontWeight: 700, fontSize: 34, color: '#F4F7FA', marginBottom: 16, lineHeight: 1.14 }}>See Zuredex in action.</h2>
@@ -206,9 +209,10 @@ export default function Page() {
         </div>
 
         <div style={{ fontFamily: "var(--font-dm), monospace", fontSize: 10, color: '#A1B8C9', textAlign: 'center', marginTop: 16 }}>
-          Sample data shown
+          Sample data · <a className="legal-link" href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>
         </div>
       </section>
+      )}
 
       {/* ── SECTION 9: OPERATIONAL VISIBILITY ────────────────── */}
       <section id="analytics" className="section-pad" style={{ padding: '86px 80px' }}>

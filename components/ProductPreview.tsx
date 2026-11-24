@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { intelligenceSamples, previewFacilities, sampleDashboard } from "@/lib/sample-data";
+import { cityPosition, indianaOutline } from "@/lib/indiana-map";
 
 const tabs = ["Executive Command Center", "Territory & Surgeon Map", "Admin Intelligence"] as const;
 
@@ -34,40 +35,63 @@ function ExecutivePreview() {
 }
 
 function TerritoryPreview() {
+  const [activeFacility, setActiveFacility] = useState(0);
   const [hover, setHover] = useState<number | null>(null);
   const [focus, setFocus] = useState<number | null>(null);
-  const selected = hover ?? focus;
+  const tooltip = hover ?? focus;
+  const facility = previewFacilities[activeFacility];
+  const production = facility.surgeons.reduce((total, surgeon) => total + surgeon.amount, 0);
+  const dollars = (amount: number) => "$" + amount.toLocaleString("en-US");
   useEffect(() => {
-    if (selected === null) return;
+    if (tooltip === null) return;
     function dismiss(event: globalThis.KeyboardEvent) {
       if (event.key === "Escape") { setHover(null); setFocus(null); }
     }
     document.addEventListener("keydown", dismiss);
     return () => document.removeEventListener("keydown", dismiss);
-  }, [selected]);
+  }, [tooltip]);
   return <div className="territory-preview">
     <div className="region-map">
-      <svg viewBox="0 0 440 270" aria-hidden="true">
+      <svg viewBox="0 0 400 370" aria-hidden="true">
         <defs><pattern id="region-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#213849" /></pattern></defs>
-        <rect width="440" height="270" fill="url(#region-grid)" />
-        <path d="M113 19 215 27 241 16 344 31 328 172 305 211 282 222 267 247 243 241 220 253 194 239 178 246 154 225 131 222 138 194 125 176 140 139Z" fill="#17384a" stroke="#518093" strokeWidth="2"/>
-        <g fill="none" stroke="#345769"><path d="m119 77 85 9 46-28 88 7M135 137l68 8 50-13 79 13M137 195l57-19 48 30 72-12M182 24l22 62-1 59-9 31 0 63M265 20l-15 38 3 74-11 74 1 35"/></g>
+        <rect width="400" height="370" fill="url(#region-grid)" />
+        <path d={indianaOutline} fill="#17384a" stroke="#6291a1" strokeWidth="1.3" strokeLinejoin="round"/>
+        <text x="16" y="25" fill="#b7cbd8" fontSize="13" letterSpacing="2">INDIANA</text>
       </svg>
       {previewFacilities.map((f, i) => <div key={f.name} className="facility-marker"
-        style={{left: `${f.x / 440 * 100}%`, top: `${f.y / 270 * 100}%`}}
+        style={cityPosition(f.longitude, f.latitude)}
         onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}>
-        <button type="button" className={`facility-dot ${f.overdue ? "overdue" : ""}`} aria-label={f.name} aria-describedby={selected === i ? "facility-tooltip" : undefined}
-          onFocus={() => { setHover(null); setFocus(i); }} onBlur={() => setFocus(null)} onClick={() => setFocus(i)}>
-          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r={Math.sqrt(f.volume)*2.1} fill="currentColor" opacity=".18"/><circle cx="20" cy="20" r={Math.sqrt(f.volume)*1.4} fill="currentColor"/></svg>
+        <button type="button" className={`facility-dot ${f.atRisk > 0 ? "overdue" : ""}`} aria-label={`${f.name}, ${f.city}`} aria-describedby={tooltip === i ? "facility-tooltip" : undefined}
+          aria-pressed={activeFacility === i} aria-controls="facility-detail"
+          onFocus={() => { setHover(null); setFocus(i); }} onBlur={() => setFocus(null)} onClick={() => setActiveFacility(i)}>
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r={Math.sqrt(f.volume)*2.1} fill="currentColor" opacity=".18"/>
+            <circle cx="20" cy="20" r={Math.sqrt(f.volume)*1.4} fill="currentColor"/>
+            {activeFacility === i && <circle cx="20" cy="20" r={Math.sqrt(f.volume)*2.1} fill="none" stroke="currentColor" strokeWidth="1.2"/>}
+          </svg>
         </button>
-        {selected === i && <div id="facility-tooltip" role="tooltip" className="facility-tooltip">
-          <strong>{f.name}</strong><span>{f.volume} cases · Surgeon {f.initials}</span>
-          <span>{f.overdue ? "At risk · PO over 30 days" : "No overdue POs"}</span>
+        {tooltip === i && <div id="facility-tooltip" role="tooltip" className="facility-tooltip">
+          <strong>{f.name}</strong><span>{f.city} · {f.volume} cases</span>
+          <span>{f.atRisk > 0 ? "At risk · PO over 30 days" : "No overdue POs"}</span>
         </div>}
       </div>)}
     </div>
-    <div className="map-key"><h3>Facility volume</h3><p>Larger circles show more cases. Select a facility to see its surgeon initials and PO status.</p>
-      <div className="product-legend map-legend"><span>No overdue POs</span><span>At-risk POs</span></div>
+    <div className="facility-sidebar">
+      <div className="facility-detail" id="facility-detail" aria-live="polite" aria-atomic="true">
+        <small>{facility.city}, Indiana</small><h3>{facility.name}</h3>
+        <dl className="facility-stats">
+          <div><dt>Production</dt><dd>{dollars(production)}</dd></div>
+          <div><dt>At Risk</dt><dd className={facility.atRisk > 0 ? "facility-risk" : undefined}>{dollars(facility.atRisk)}</dd></div>
+          <div><dt>Cases</dt><dd>{facility.volume}</dd></div>
+          <div><dt>Surgeons</dt><dd>{facility.surgeons.length}</dd></div>
+        </dl>
+        <dl className="facility-surgeons">{facility.surgeons.map(surgeon =>
+          <div key={surgeon.name}><dt>{surgeon.name}</dt><dd>{dollars(surgeon.amount)}</dd></div>
+        )}</dl>
+      </div>
+      <div className="map-key"><p>Bubble area shows case volume.</p>
+        <div className="product-legend map-legend"><span>No overdue POs</span><span>At-risk POs</span></div>
+      </div>
     </div>
   </div>;
 }
